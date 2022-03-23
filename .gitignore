@@ -1,0 +1,7 @@
+otls/backup/*
+otls/_OLD/*
+*.bat*
+*.sh*
+.workspace.code-workspace
+toolbar/miu.git.shelf
+.git_commit

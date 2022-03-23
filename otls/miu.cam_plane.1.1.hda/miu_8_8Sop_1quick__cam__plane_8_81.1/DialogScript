@@ -1,0 +1,106 @@
+# Dialog script for miu::quick_cam_plane::1.1 automatically generated
+
+{
+    name	miu::quick_cam_plane::1.1
+    script	sb::quick_cam_plane::1.0
+    label	"Quick Cam Plane"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	CAMERA_PLANE
+    outputlabel	2	"STATIC PLANE"
+    outputlabel	3	"CAM POS"
+
+    groupsimple {
+        name    "folder1"
+        label   "BASIC"
+
+        parm {
+            name    "sepparm4"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "cam"
+            label   "Camera"
+            type    oppath
+            joinnext
+            default { "" }
+            parmtag { "opfilter" "!!OBJ/CAMERA!!" }
+            parmtag { "oprelative" "." }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "opemCamProperties"
+            label   "Open Parameters"
+            type    button
+            default { "0" }
+            parmtag { "script_callback" "hou.phm().openParms(kwargs)" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm2"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "distance"
+            label   "Plane Distance"
+            type    float
+            invisible
+            default { "0.01" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "fullRes"
+            label   "Full Resolution"
+            type    toggle
+            invisible
+            default { "on" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupcollapsible {
+        name    "folder0"
+        label   "INIT PLANE ATTRIBS"
+
+        parm {
+            name    "Color"
+            label   "Color"
+            type    color
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "colorwheel" "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "Alpha"
+            label   "Alpha"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

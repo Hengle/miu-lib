@@ -1,0 +1,315 @@
+# Dialog script for miu::text::1.2 automatically generated
+
+{
+    name	miu::text::1.2
+    script	SB::TEXT::1.1
+    label	Text
+
+    help {
+	""
+    }
+
+    inputlabel	1	"INPUT GEO (2D - DEFAULT AXIS -> XY)"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	GEO
+
+    groupsimple {
+        name    "folder2"
+        label   "PARAMETERS"
+
+        parm {
+            name    "sepparm24"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "tol3d"
+            label   "Resolution"
+            type    log
+            default { "0.02" }
+            range   { 0.001 0.4 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm23"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        groupcollapsible {
+            name    "folder1"
+            label   "ALIGNEMENT"
+
+            parm {
+                name    "halign"
+                label   "Horizontal Alignment"
+                type    ordinal
+                default { "left" }
+                menu {
+                    "left"      "Left"
+                    "center"    "Center"
+                    "right"     "Right"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "valign"
+                label   "Vertical Alignment"
+                type    ordinal
+                default { "bottom" }
+                menu {
+                    "first"     "First Line"
+                    "top"       "Top"
+                    "middle"    "Middle"
+                    "bottom"    "Bottom"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "tracking"
+                label   "Tracking"
+                type    vector2
+                size    2
+                default { "0" "0" }
+                range   { -1 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "oblique"
+                label   "Oblique Angle"
+                type    angle
+                default { "0" }
+                range   { -89! 89! }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+        parm {
+            name    "sepparm22"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "file"
+            label   "Font"
+            type    file
+            joinnext
+            default { "Lato Bold" }
+            menureplace {
+                [ "opmenu -l -a font1 file" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "filechooser_mode" "read" }
+            parmtag { "filechooser_pattern" "*.ttf, *.otf, *.ttc, *.otc, *.pfa, *.pfb" }
+        }
+        parm {
+            name    "sepparm25"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "sepparm18"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "text"
+            label   "Text"
+            type    string
+            nolabel
+            default { "miu" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "editor" "1" }
+            parmtag { "editorlines" "8-40" }
+        }
+        parm {
+            name    "sepparm17"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        groupcollapsible {
+            name    "folder0"
+            label   "OUTPUT"
+
+            parm {
+                name    "sepparm20"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+            parm {
+                name    "addattrib"
+                label   "Add Text Attributes"
+                type    toggle
+                joinnext
+                default { "on" }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "input"
+                label   "Visualize"
+                type    toggle
+                joinnext
+                default { "off" }
+                hidewhen "{ addattrib != 1 }"
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "rampattribute"
+                label   "Attribute"
+                type    string
+                joinnext
+                default { "textsymbol" }
+                disablewhen "{ input != 1 }"
+                hidewhen "{ addattrib != 1 }"
+                menureplace {
+                    [ "opmenu -l -a color1 rampattribute" ]
+                }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "seed"
+                label   "Seed"
+                type    integer
+                joinnext
+                default { "0" }
+                disablewhen "{ input != 1 }"
+                hidewhen "{ addattrib != 1 }"
+                range   { 0 100 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "sepparm26"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+            parm {
+                name    "input4"
+                label   "Create Packed Geo"
+                type    toggle
+                joinnext
+                default { "off" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "input3"
+                label   "Quad [Required : Exoside QuadRemesher License]"
+                type    toggle
+                default { "off" }
+                disablewhen "{ input2 != 1 }"
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm27"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+            parm {
+                name    "sepparm28"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+            parm {
+                name    "input2"
+                label   "Remesh"
+                type    toggle
+                invisible
+                joinnext
+                default { "on" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "iterations"
+                label   "Relax"
+                type    integer
+                default { "2" }
+                hidewhen "{ input2 != 1 }"
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm29"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+            parm {
+                name    "density"
+                label   "Quad_Density"
+                type    float
+                default { "1" }
+                hidewhen "{ input3 != 1 }"
+                range   { 0.05 4 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+        parm {
+            name    "sepparm15"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "sepparm16"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+    }
+
+}

@@ -1,0 +1,1847 @@
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="node_type"
+Content-Type: text/plain
+
+Sop
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.init"
+Content-Type: text/plain
+
+type = miu::live_gl::1.1
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -2.2825 0.078041
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0.624 0.329 0.396 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.inp"
+Content-Type: text/plain
+
+1
+0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1.init"
+Content-Type: text/plain
+
+type = matnet
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1.def"
+Content-Type: text/plain
+
+comment ""
+position 2.40763 4.59949
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0.3 0.5 0.65 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER.init"
+Content-Type: text/plain
+
+type = redshift_vopnet
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER.def"
+Content-Type: text/plain
+
+comment ""
+position 1.95548 4.25984
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 1 0.725 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "Redshift_SHOP_parmSwitcher3"
+        label   "Settings"
+
+        parm {
+            name    "RS_matprop_ID"
+            baseparm
+            label   "Material ID"
+            invisible
+            export  none
+        }
+    }
+
+    group {
+        name    "Redshift_SHOP_parmSwitcher3_1"
+        label   "OpenGL"
+
+        parm {
+            name    "ogl_diff"
+            baseparm
+            label   "OGL Diffuse"
+            export  none
+        }
+        parm {
+            name    "ogl_emit"
+            baseparm
+            label   "OGL Emission"
+            export  none
+        }
+        parm {
+            name    "ogl_spec"
+            baseparm
+            label   "OGL Specular"
+            export  none
+        }
+        parm {
+            name    "ogl_rough"
+            baseparm
+            label   "OGL Roughness"
+            export  none
+        }
+        parm {
+            name    "ogl_alpha"
+            baseparm
+            label   "OGL Alpha"
+            export  none
+        }
+        parm {
+            name    "ogl_light"
+            baseparm
+            label   "OGL Use Lighting"
+            export  none
+        }
+    }
+
+    parm {
+        name    "ogl_use_tex_"
+        label   "Use Diffuse Map #"
+        type    toggle
+        joinnext
+        default { "on" }
+        help    "None"
+        parmtag { "cook_dependent" "1" }
+        parmtag { "spare_category" "OpenGL" }
+    }
+    parm {
+        name    "ogl_use_occlusionmap"
+        label   "Use Occlusion Map"
+        type    toggle
+        joinnext
+        default { "off" }
+        help    "None"
+        parmtag { "cook_dependent" "1" }
+        parmtag { "spare_category" "OpenGL" }
+    }
+    parm {
+        name    "ogl_use_roughmap"
+        label   "Use Roughness Map"
+        type    toggle
+        joinnext
+        default { "on" }
+        help    "None"
+        parmtag { "cook_dependent" "1" }
+        parmtag { "spare_category" "OpenGL" }
+    }
+    parm {
+        name    "ogl_use_normalmap"
+        label   "Use Normal Map"
+        type    toggle
+        default { "on" }
+        help    "None"
+        parmtag { "cook_dependent" "1" }
+        parmtag { "spare_category" "OpenGL" }
+    }
+    groupsimple {
+        name    "folder1"
+        label   "PATHS"
+
+        parm {
+            name    "spare_input0"
+            label   "Source OP"
+            type    oppath
+            default { "../../IN" }
+            help    "Refer to this in expressions as -1, such as: npoints(-1)"
+            parmtag { "cook_dependent" "1" }
+            parmtag { "opfilter" "!!SOP!!" }
+            parmtag { "oprelative" "." }
+        }
+        parm {
+            name    "texColorFull"
+            label   "Color [Full]"
+            type    string
+            default { "op:`details(-1, \"opTexture_Color\")`" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "texNormalFull"
+            label   "Normal [Full]"
+            type    string
+            default { "op:`details(-1, \"opTexture_Normal\")`" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "texRoughessFull"
+            label   "Roughness [Full]"
+            type    string
+            default { "op:`details(-1, \"opTexture_Roughness\")`" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "texAOFull4"
+            label   "AO [Full]"
+            type    string
+            default { "op:`details(-1, \"opTexture_AO\")`" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "texColorPreview"
+            label   "Color [Preview]"
+            type    string
+            default { "op:`details(-1, \"opTexture_Color_AO_preview\")`" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "texAOFull5"
+            label   "AO [Preview]"
+            type    string
+            default { "op:`details(-1, \"opTexture_AO_preview\")`" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupcollapsible {
+        name    "folder1_1"
+        label   "COLOR"
+
+        multiparm {
+            name    "ogl_numtex"
+            label    "Diffuse Texture Layers"
+            default 1
+            parmtag { "spare_category" "OpenGL" }
+
+            parm {
+                name    "ogl_tex#"
+                label   "Texture #"
+                type    image
+                default { "" }
+                help    "None"
+                parmtag { "cook_dependent" "1" }
+                parmtag { "filechooser_mode" "read" }
+                parmtag { "spare_category" "OpenGL" }
+            }
+            parm {
+                name    "ogl_texuvset#"
+                label   "UV Set"
+                type    string
+                default { "" }
+                help    "None"
+                menureplace {
+                    "uv"    "uv"
+                    "uv2"   "uv2"
+                    "uv3"   "uv3"
+                    "uv4"   "uv4"
+                    "uv5"   "uv5"
+                    "uv6"   "uv6"
+                    "uv7"   "uv7"
+                    "uv8"   "uv8"
+                }
+                parmtag { "cook_dependent" "1" }
+                parmtag { "spare_category" "OpenGL" }
+            }
+            parm {
+                name    "ogl_tex_min_filter#"
+                label   "Minification Filter"
+                type    string
+                default { "GL_LINEAR_MIPMAP_LINEAR" }
+                help    "None"
+                menu {
+                    "GL_NEAREST"                "No filtering (very poor)"
+                    "GL_LINEAR"                 "Bilinear (poor)"
+                    "GL_NEAREST_MIPMAP_NEAREST" "No filtering, Nearest Mipmap (poor)"
+                    "GL_LINEAR_MIPMAP_NEAREST"  "Bilinear, Nearest Mipmap (okay)"
+                    "GL_NEAREST_MIPMAP_LINEAR"  "No filtering, Blend Mipmaps (good)"
+                    "GL_LINEAR_MIPMAP_LINEAR"   "Trilinear (best)"
+                }
+                parmtag { "cook_dependent" "1" }
+                parmtag { "spare_category" "OpenGL" }
+            }
+            parm {
+                name    "ogl_tex_mag_filter#"
+                label   "Magnification Filter"
+                type    string
+                default { "GL_LINEAR" }
+                help    "None"
+                menu {
+                    "GL_NEAREST"    "No filtering"
+                    "GL_LINEAR"     "Bilinear"
+                }
+                parmtag { "cook_dependent" "1" }
+                parmtag { "spare_category" "OpenGL" }
+            }
+            parm {
+                name    "ogl_tex_wrap#"
+                label   "Texture Wrap"
+                type    string
+                default { "repeat" }
+                help    "None"
+                menu {
+                    "repeat"    "Repeat"
+                    "clamp"     "Streak"
+                    "decal"     "Decal"
+                    "mirror"    "Mirror"
+                }
+                parmtag { "cook_dependent" "1" }
+                parmtag { "spare_category" "OpenGL" }
+            }
+            parm {
+                name    "ogl_tex_vwrap#"
+                label   "Texture V Wrap"
+                type    string
+                default { "repeat" }
+                help    "None"
+                menu {
+                    "repeat"    "Repeat"
+                    "clamp"     "Streak"
+                    "decal"     "Decal"
+                    "mirror"    "Mirror"
+                }
+                parmtag { "cook_dependent" "1" }
+                parmtag { "spare_category" "OpenGL" }
+            }
+            parm {
+                name    "ogl_tex_uvtranslate#"
+                label   "UV Translate"
+                type    uv
+                size    2
+                default { "0" "0" }
+                help    "None"
+                range   { 0 1 }
+                parmtag { "cook_dependent" "1" }
+                parmtag { "spare_category" "OpenGL" }
+            }
+            parm {
+                name    "ogl_tex_uvrotate#"
+                label   "UV Rotate"
+                type    float
+                default { "0" }
+                help    "None"
+                range   { 0 360 }
+                parmtag { "cook_dependent" "1" }
+                parmtag { "spare_category" "OpenGL" }
+            }
+            parm {
+                name    "ogl_tex_uvscale#"
+                label   "UV Scale"
+                type    uv
+                size    2
+                default { "1" "1" }
+                help    "None"
+                range   { 0 1 }
+                parmtag { "cook_dependent" "1" }
+                parmtag { "spare_category" "OpenGL" }
+            }
+            parm {
+                name    "ogl_tex_uvpivot#"
+                label   "UV Pivot"
+                type    uv
+                size    2
+                default { "0.5" "0.5" }
+                help    "None"
+                range   { 0 1 }
+                parmtag { "cook_dependent" "1" }
+                parmtag { "spare_category" "OpenGL" }
+            }
+        }
+
+    }
+
+    groupcollapsible {
+        name    "folder1_2"
+        label   "AO"
+
+        parm {
+            name    "ogl_occlusionmap"
+            label   "Occlusion Map"
+            type    image
+            default { "" }
+            help    "None"
+            parmtag { "cook_dependent" "1" }
+            parmtag { "filechooser_mode" "read" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_occlusionmap_comp"
+            label   "Occlusion Channel"
+            type    integer
+            default { "0" }
+            help    "None"
+            disablewhen "{ ogl_occlusionmap == \"\" }"
+            menu {
+                "0" "Luminance"
+                "1" "Red"
+                "2" "Green"
+                "3" "Blue"
+                "4" "Alpha"
+            }
+            range   { 0 4 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_occlusion_uvtranslate"
+            label   "UV Translate (Occlusion)"
+            type    uv
+            size    2
+            default { "0" "0" }
+            help    "None"
+            disablewhen "{ ogl_occlusionmap == \"\" }"
+            range   { 0 1 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_occlusion_uvrotate"
+            label   "UV Rotate (Occlusion)"
+            type    float
+            default { "0" }
+            help    "None"
+            disablewhen "{ ogl_occlusionmap == \"\" }"
+            range   { 0 360 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_occlusion_uvscale"
+            label   "UV Scale (Occlusion)"
+            type    uv
+            size    2
+            default { "1" "1" }
+            help    "None"
+            disablewhen "{ ogl_occlusionmap == \"\" }"
+            range   { 0 1 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_occlusion_uvpivot"
+            label   "UV Pivot (Occlusion)"
+            type    uv
+            size    2
+            default { "0.5" "0.5" }
+            help    "None"
+            disablewhen "{ ogl_occlusionmap == \"\" }"
+            range   { 0 1 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+    }
+
+    groupcollapsible {
+        name    "folder1_3"
+        label   "NORMAL"
+
+        parm {
+            name    "ogl_normalmap_style"
+            label   "Normal Map Style"
+            type    string
+            default { "normal" }
+            help    "None"
+            menu {
+                "bump"      "Bump Map"
+                "normal"    "Normal Map"
+            }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_normalmap"
+            label   "Normal Map"
+            type    image
+            default { "`chs(\"texNormalFull\")`" }
+            help    "None"
+            parmtag { "cook_dependent" "1" }
+            parmtag { "filechooser_mode" "read" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_normalmap_type"
+            label   "Normal Map Type"
+            type    string
+            default { "uvtangent" }
+            help    "None"
+            menu {
+                "uvtangent" "Tangent Space"
+                "world"     "World Space"
+                "object"    "Object Space"
+            }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_normalbias"
+            label   "Normal Map Range"
+            type    integer
+            default { "0" }
+            help    "None"
+            disablewhen "{ ogl_normalmap == \"\" }"
+            menu {
+                "0" "0 to 1"
+                "1" "-1 to 1"
+            }
+            range   { 0 10 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_normalmap_scale"
+            label   "Normal Scale"
+            type    float
+            default { "1" }
+            help    "None"
+            disablewhen "{ ogl_normalmap == \"\" }"
+            range   { 0 10 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_normalflipx"
+            label   "Flip Normal Map X"
+            type    toggle
+            default { "off" }
+            help    "None"
+            disablewhen "{ ogl_normalmap == \"\" }"
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_normalflipy"
+            label   "Flip Normal Map Y"
+            type    toggle
+            default { "off" }
+            help    "None"
+            disablewhen "{ ogl_normalmap == \"\" }"
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_normallayer"
+            label   "Normal Layer"
+            type    integer
+            default { "0" }
+            help    "None"
+            disablewhen "{ ogl_normalmap == \"\" }"
+            range   { 0 15 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_normal_uvtranslate"
+            label   "UV Translate (Normal)"
+            type    uv
+            size    2
+            default { "0" "0" }
+            help    "None"
+            disablewhen "{ ogl_normalmap == \"\" }"
+            range   { 0 1 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_normal_uvrotate"
+            label   "UV Rotate (Normal)"
+            type    float
+            default { "0" }
+            help    "None"
+            disablewhen "{ ogl_normalmap == \"\" }"
+            range   { 0 360 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_normal_uvscale"
+            label   "UV Scale (Normal)"
+            type    uv
+            size    2
+            default { "1" "1" }
+            help    "None"
+            disablewhen "{ ogl_normalmap == \"\" }"
+            range   { 0 1 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_normal_uvpivot"
+            label   "UV Pivot (Normal)"
+            type    uv
+            size    2
+            default { "0.5" "0.5" }
+            help    "None"
+            disablewhen "{ ogl_normalmap == \"\" }"
+            range   { 0 1 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+    }
+
+    groupcollapsible {
+        name    "folder1_4"
+        label   "ROUGHNESS"
+
+        parm {
+            name    "ogl_roughmap"
+            label   "Roughness Map"
+            type    image
+            default { "`chs(\"texRoughessFull\")`" }
+            help    "None"
+            parmtag { "cook_dependent" "1" }
+            parmtag { "filechooser_mode" "read" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_invertroughmap"
+            label   "Invert Roughness Map (Glossiness)"
+            type    toggle
+            default { "off" }
+            help    "None"
+            disablewhen "{ ogl_roughmap == \"\" }"
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_roughmap_comp"
+            label   "Roughness Channel"
+            type    integer
+            default { "0" }
+            help    "None"
+            disablewhen "{ ogl_roughmap == \"\" }"
+            menu {
+                "0" "Luminance"
+                "1" "Red"
+                "2" "Green"
+                "3" "Blue"
+                "4" "Alpha"
+            }
+            range   { 0 4 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_rough_uvtranslate"
+            label   "UV Translate (Rough)"
+            type    uv
+            size    2
+            default { "0" "0" }
+            help    "None"
+            disablewhen "{ ogl_roughmap == \"\" }"
+            range   { 0 1 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_rough_uvrotate"
+            label   "UV Rotate (Rough)"
+            type    float
+            default { "0" }
+            help    "None"
+            disablewhen "{ ogl_roughmap == \"\" }"
+            range   { 0 360 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_rough_uvscale"
+            label   "UV Scale (Rough)"
+            type    uv
+            size    2
+            default { "1" "1" }
+            help    "None"
+            disablewhen "{ ogl_roughmap == \"\" }"
+            range   { 0 1 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+        parm {
+            name    "ogl_rough_uvpivot"
+            label   "UV Pivot (Rough)"
+            type    uv
+            size    2
+            default { "0.5" "0.5" }
+            help    "None"
+            disablewhen "{ ogl_roughmap == \"\" }"
+            range   { 0 1 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "OpenGL" }
+        }
+    }
+
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+Redshift_SHOP_parmSwitcher	[ 0	locks=0 ]	(	1	1	)
+RS_matprop_ID	[ 0	locks=0 ]	(	0	)
+ogl_diff	[ 0	locks=0 ]	(	1	1	1	)
+ogl_emit	[ 0	locks=0 ]	(	0	0	0	)
+ogl_spec	[ 0	locks=0 ]	(	0.20000000000000001	0.20000000000000001	0.20000000000000001	)
+ogl_rough	[ 0	locks=0 ]	(	0.050000000000000003	)
+ogl_alpha	[ 0	locks=0 ]	(	1	)
+ogl_light	[ 0	locks=0 ]	(	"on"	)
+Redshift_SHOP_parmSwitcher3	[ 0	locks=0 ]	(	0	0	)
+ogl_use_tex_	[ 0	locks=0 ]	(	"on"	)
+ogl_use_occlusionmap	[ 0	locks=0 ]	(	"off"	)
+ogl_use_roughmap	[ 0	locks=0 ]	(	"on"	)
+ogl_use_normalmap	[ 0	locks=0 ]	(	"on"	)
+folder1	[ 0	locks=0 ]	(	0	)
+spare_input0	[ 0	locks=0 ]	(	../../IN	)
+texColorFull	[ 0	locks=0 ]	(	"op:`details(-1, \"opTexture_Color\")`"	)
+texNormalFull	[ 0	locks=0 ]	(	"op:`details(-1, \"opTexture_Normal\")`"	)
+texRoughessFull	[ 0	locks=0 ]	(	"op:`details(-1, \"opTexture_Roughness\")`"	)
+texAOFull4	[ 0	locks=0 ]	(	"op:`details(-1, \"opTexture_AO\")`"	)
+texColorPreview	[ 0	locks=0 ]	(	"op:`details(-1, \"opTexture_Color_AO_preview\")`"	)
+texAOFull5	[ 0	locks=0 ]	(	"op:`details(-1, \"opTexture_AO_preview\")`"	)
+folder1_1	[ 0	locks=0 ]	(	0	)
+ogl_numtex	[ 0	locks=0 ]	(	1	)
+ogl_tex1	[ 0	locks=0 ]	(	`chs(\"texColorPreview\")`	)
+ogl_texuvset1	[ 0	locks=0 ]	(	""	)
+ogl_tex_min_filter1	[ 0	locks=0 ]	(	GL_LINEAR_MIPMAP_LINEAR	)
+ogl_tex_mag_filter1	[ 0	locks=0 ]	(	GL_LINEAR	)
+ogl_tex_wrap1	[ 0	locks=0 ]	(	repeat	)
+ogl_tex_vwrap1	[ 0	locks=0 ]	(	repeat	)
+ogl_tex_uvtranslate1	[ 0	locks=0 ]	(	0	0	)
+ogl_tex_uvrotate1	[ 0	locks=0 ]	(	0	)
+ogl_tex_uvscale1	[ 0	locks=0 ]	(	1	1	)
+ogl_tex_uvpivot1	[ 0	locks=0 ]	(	0.5	0.5	)
+folder1_2	[ 0	locks=0 ]	(	0	)
+ogl_occlusionmap	[ 0	locks=0 ]	(	""	)
+ogl_occlusionmap_comp	[ 0	locks=0 ]	(	0	)
+ogl_occlusion_uvtranslate	[ 0	locks=0 ]	(	0	0	)
+ogl_occlusion_uvrotate	[ 0	locks=0 ]	(	0	)
+ogl_occlusion_uvscale	[ 0	locks=0 ]	(	1	1	)
+ogl_occlusion_uvpivot	[ 0	locks=0 ]	(	0.5	0.5	)
+folder1_3	[ 0	locks=0 ]	(	0	)
+ogl_normalmap_style	[ 0	locks=0 ]	(	normal	)
+ogl_normalmap	[ 0	locks=0 ]	(	`chs(\"texNormalFull\")`	)
+ogl_normalmap_type	[ 0	locks=0 ]	(	uvtangent	)
+ogl_normalbias	[ 0	locks=0 ]	(	0	)
+ogl_normalmap_scale	[ 0	locks=0 ]	(	1	)
+ogl_normalflipx	[ 0	locks=0 ]	(	"off"	)
+ogl_normalflipy	[ 0	locks=0 ]	(	"off"	)
+ogl_normallayer	[ 0	locks=0 ]	(	0	)
+ogl_normal_uvtranslate	[ 0	locks=0 ]	(	0	0	)
+ogl_normal_uvrotate	[ 0	locks=0 ]	(	0	)
+ogl_normal_uvscale	[ 0	locks=0 ]	(	1	1	)
+ogl_normal_uvpivot	[ 0	locks=0 ]	(	0.5	0.5	)
+folder1_4	[ 0	locks=0 ]	(	0	)
+ogl_roughmap	[ 0	locks=0 ]	(	`chs(\"texRoughessFull\")`	)
+ogl_invertroughmap	[ 0	locks=0 ]	(	"off"	)
+ogl_roughmap_comp	[ 0	locks=0 ]	(	0	)
+ogl_rough_uvtranslate	[ 0	locks=0 ]	(	0	0	)
+ogl_rough_uvrotate	[ 0	locks=0 ]	(	0	)
+ogl_rough_uvscale	[ 0	locks=0 ]	(	1	1	)
+ogl_rough_uvpivot	[ 0	locks=0 ]	(	0.5	0.5	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/redshift_material1.init"
+Content-Type: text/plain
+
+type = redshift_material
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/redshift_material1.def"
+Content-Type: text/plain
+
+comment ""
+position -0.536783 0
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	Material1 0 1 "Surface"
+}
+inputs
+{
+0 	Material1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0 0 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/redshift_material1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+RS_matprop_ID	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/redshift_material1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/Material1.init"
+Content-Type: text/plain
+
+type = redshift::Material
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/Material1.def"
+Content-Type: text/plain
+
+redshift_version
+3.0.62
+comment ""
+position -2.5236 0
+connectornextid 54
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "outColor"
+}
+inputsNamed3
+{
+1 	COLOR 0 1 "diffuse_color"
+2 	"" "" 1 "diffuse_weight"
+3 	"" "" 1 "diffuse_roughness"
+4 	"" "" 1 "transl_color"
+5 	"" "" 1 "transl_weight"
+6 	"" "" 1 "refl_color"
+7 	"" "" 1 "refl_weight"
+8 	ROUGHNESS 0 1 "refl_roughness"
+9 	"" "" 1 "refl_aniso"
+10 	"" "" 1 "refl_aniso_rotation"
+11 	"" "" 1 "refl_reflectivity"
+12 	"" "" 1 "refl_edge_tint"
+13 	"" "" 1 "refl_ior3"
+14 	"" "" 1 "refl_k3"
+15 	"" "" 1 "refl_metalness"
+16 	"" "" 1 "refl_ior"
+17 	"" "" 1 "sheen_color"
+18 	"" "" 1 "sheen_weight"
+19 	"" "" 1 "sheen_roughness"
+20 	"" "" 1 "refr_color"
+21 	"" "" 1 "refr_weight"
+22 	"" "" 1 "refr_roughness"
+23 	"" "" 1 "refr_ior"
+24 	"" "" 1 "refr_abbe"
+25 	"" "" 1 "refr_transmittance"
+26 	"" "" 1 "refr_absorption_scale"
+27 	"" "" 1 "ss_extinction_coeff"
+28 	"" "" 1 "ss_extinction_scale"
+29 	"" "" 1 "ss_scatter_coeff"
+30 	"" "" 1 "ss_amount"
+31 	"" "" 1 "ms_amount"
+32 	"" "" 1 "ms_color0"
+33 	"" "" 1 "ms_weight0"
+34 	"" "" 1 "ms_radius0"
+35 	"" "" 1 "ms_color1"
+36 	"" "" 1 "ms_weight1"
+37 	"" "" 1 "ms_radius1"
+38 	"" "" 1 "ms_color2"
+39 	"" "" 1 "ms_weight2"
+40 	"" "" 1 "ms_radius2"
+41 	"" "" 1 "coat_color"
+42 	"" "" 1 "coat_weight"
+43 	"" "" 1 "coat_roughness"
+44 	"" "" 1 "coat_reflectivity"
+45 	"" "" 1 "coat_ior3"
+46 	"" "" 1 "coat_ior"
+47 	"" "" 1 "coat_transmittance"
+48 	"" "" 1 "coat_thickness"
+49 	"" "" 1 "coat_bump_input"
+50 	"" "" 1 "overall_color"
+51 	"" "" 1 "opacity_color"
+52 	"" "" 1 "emission_color"
+53 	BumpMap1 1 1 "bump_input"
+}
+inputs
+{
+0 	COLOR 0 1
+1 	"" 0 1
+2 	"" 0 1
+3 	"" 0 1
+4 	"" 0 1
+5 	"" 0 1
+6 	"" 0 1
+7 	ROUGHNESS 0 1
+8 	"" 0 1
+9 	"" 0 1
+10 	"" 0 1
+11 	"" 0 1
+12 	"" 0 1
+13 	"" 0 1
+14 	"" 0 1
+15 	"" 0 1
+16 	"" 0 1
+17 	"" 0 1
+18 	"" 0 1
+19 	"" 0 1
+20 	"" 0 1
+21 	"" 0 1
+22 	"" 0 1
+23 	"" 0 1
+24 	"" 0 1
+25 	"" 0 1
+26 	"" 0 1
+27 	"" 0 1
+28 	"" 0 1
+29 	"" 0 1
+30 	"" 0 1
+31 	"" 0 1
+32 	"" 0 1
+33 	"" 0 1
+34 	"" 0 1
+35 	"" 0 1
+36 	"" 0 1
+37 	"" 0 1
+38 	"" 0 1
+39 	"" 0 1
+40 	"" 0 1
+41 	"" 0 1
+42 	"" 0 1
+43 	"" 0 1
+44 	"" 0 1
+45 	"" 0 1
+46 	"" 0 1
+47 	"" 0 1
+48 	"" 0 1
+49 	"" 0 1
+50 	"" 0 1
+51 	"" 0 1
+52 	BumpMap1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0.094 0.369 0.69 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/Material1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+RS_shaderNodeMainSwitcher	[ 0	locks=0 ]	(	0	0	0	0	0	0	)
+preset	[ 0	locks=0 ]	(	-1	)
+Diffuse_0	[ 0	locks=0 ]	(	0	)
+diffuse_color	[ 0	locks=0 ]	(	0	0	0	)
+diffuse_weight	[ 0	locks=0 ]	(	1	)
+diffuse_roughness	[ 0	locks=0 ]	(	0	)
+Back_lighting/Translucency_1	[ 0	locks=0 ]	(	0	)
+transl_color	[ 0	locks=0 ]	(	0.5	0.5	0.5	)
+transl_weight	[ 0	locks=0 ]	(	0	)
+Reflection_2	[ 0	locks=0 ]	(	0	)
+refl_color	[ 0	locks=0 ]	(	1	1	1	)
+refl_weight	[ 0	locks=0 ]	(	1	)
+refl_roughness	[ 0	locks=0 ]	(	0	)
+refl_samples	[ 0	locks=0 ]	(	16	)
+refl_brdf	[ 0	locks=0 ]	(	0	)
+refl_aniso	[ 0	locks=0 ]	(	0	)
+refl_aniso_rotation	[ 0	locks=0 ]	(	0	)
+refl_fresnel_mode	[ 0	locks=0 ]	(	3	)
+refl_reflectivity	[ 0	locks=0 ]	(	0.039999999105930328	0.039999999105930328	0.039999999105930328	)
+refl_edge_tint	[ 0	locks=0 ]	(	0	0	0	)
+refl_ior3	[ 0	locks=0 ]	(	1.5	1.5	1.5	)
+refl_k3	[ 0	locks=0 ]	(	0	0	0	)
+refl_metalness	[ 0	locks=0 ]	(	0	)
+refl_ior	[ 0	locks=0 ]	(	1.5	)
+Sheen_3	[ 0	locks=0 ]	(	0	)
+sheen_color	[ 0	locks=0 ]	(	1	1	1	)
+sheen_weight	[ 0	locks=0 ]	(	0	)
+sheen_roughness	[ 0	locks=0 ]	(	0.30000001192092896	)
+sheen_samples	[ 0	locks=0 ]	(	64	)
+Refraction/Transmission_4	[ 0	locks=0 ]	(	0	)
+refr_color	[ 0	locks=0 ]	(	1	1	1	)
+refr_weight	[ 0	locks=0 ]	(	0	)
+refr_roughness	[ 0	locks=0 ]	(	0	)
+refr_samples	[ 0	locks=0 ]	(	8	)
+refr_ior	[ 0	locks=0 ]	(	1.5	)
+refr_use_base_IOR	[ 0	locks=0 ]	(	"on"	)
+refr_abbe	[ 0	locks=0 ]	(	0	)
+refr_thin_walled	[ 0	locks=0 ]	(	"off"	)
+Sub_Surface_5	[ 0	locks=0 ]	(	0	)
+ss_unitsMode	[ 0	locks=0 ]	(	0	)
+refr_transmittance	[ 0	locks=0 ]	(	1	1	1	)
+refr_absorption_scale	[ 0	locks=0 ]	(	1	)
+ss_extinction_coeff	[ 0	locks=0 ]	(	0	0	0	)
+ss_extinction_scale	[ 0	locks=0 ]	(	1	)
+ss_scatter_coeff	[ 0	locks=0 ]	(	1	1	1	)
+ss_amount	[ 0	locks=0 ]	(	0	)
+ss_phase	[ 0	locks=0 ]	(	0	)
+ss_samples	[ 0	locks=0 ]	(	16	)
+General_6	[ 0	locks=0 ]	(	0	)
+ms_amount	[ 0	locks=0 ]	(	0	)
+ms_radius_scale	[ 0	locks=0 ]	(	1	)
+ms_mode	[ 0	locks=0 ]	(	1	)
+ms_samples	[ 0	locks=0 ]	(	64	)
+ms_include_mode	[ 0	locks=0 ]	(	1	)
+Layer_1_7	[ 0	locks=0 ]	(	0	)
+ms_color0	[ 0	locks=0 ]	(	1	0.89999997615814209	0.69999998807907104	)
+ms_weight0	[ 0	locks=0 ]	(	1	)
+ms_radius0	[ 0	locks=0 ]	(	1	)
+Layer_2_8	[ 0	locks=0 ]	(	0	)
+ms_color1	[ 0	locks=0 ]	(	1	0.89999997615814209	0.69999998807907104	)
+ms_weight1	[ 0	locks=0 ]	(	0	)
+ms_radius1	[ 0	locks=0 ]	(	1	)
+Layer_3_9	[ 0	locks=0 ]	(	0	)
+ms_color2	[ 0	locks=0 ]	(	1	0.89999997615814209	0.69999998807907104	)
+ms_weight2	[ 0	locks=0 ]	(	0	)
+ms_radius2	[ 0	locks=0 ]	(	1	)
+General_10	[ 0	locks=0 ]	(	0	)
+coat_color	[ 0	locks=0 ]	(	1	1	1	)
+coat_weight	[ 0	locks=0 ]	(	0	)
+coat_roughness	[ 0	locks=0 ]	(	0	)
+coat_samples	[ 0	locks=0 ]	(	16	)
+coat_brdf	[ 0	locks=0 ]	(	0	)
+coat_fresnel_mode	[ 0	locks=0 ]	(	3	)
+coat_reflectivity	[ 0	locks=0 ]	(	0.027000000700354576	0.027000000700354576	0.027000000700354576	)
+coat_ior3	[ 0	locks=0 ]	(	1.3999999761581421	1.3999999761581421	1.3999999761581421	)
+coat_ior	[ 0	locks=0 ]	(	1.3999999761581421	)
+Advanced_11	[ 0	locks=0 ]	(	0	)
+coat_transmittance	[ 0	locks=0 ]	(	1	1	1	)
+coat_thickness	[ 0	locks=0 ]	(	0.10000000149011612	)
+coat_bump_input	[ 0	locks=0 ]	(	0	)
+overall_color	[ 0	locks=0 ]	(	1	1	1	)
+opacity_color	[ 0	locks=0 ]	(	1	1	1	)
+emission_color	[ 0	locks=0 ]	(	0	0	0	)
+emission_weight	[ 0	locks=0 ]	(	0	)
+bump_input	[ 0	locks=0 ]	(	0	)
+depth_override	[ 0	locks=0 ]	(	"off"	)
+combined_depth	[ 0	locks=0 ]	(	6	)
+Reflection_12	[ 0	locks=0 ]	(	0	)
+refl_depth	[ 0	locks=0 ]	(	3	)
+refl_enablecutoff	[ 0	locks=0 ]	(	"off"	)
+refl_cutoff	[ 0	locks=0 ]	(	0.0099999997764825821	)
+skip_inside_refl	[ 0	locks=0 ]	(	"on"	)
+Refraction_13	[ 0	locks=0 ]	(	0	)
+refr_depth	[ 0	locks=0 ]	(	5	)
+refr_enablecutoff	[ 0	locks=0 ]	(	"off"	)
+refr_cutoff	[ 0	locks=0 ]	(	0.0099999997764825821	)
+energyCompMode	[ 0	locks=0 ]	(	1	)
+overallAffectsEmission	[ 0	locks=0 ]	(	"off"	)
+refl_endmode	[ 0	locks=0 ]	(	1	)
+Diffuse_14	[ 0	locks=0 ]	(	0	)
+diffuse_direct	[ 0	locks=0 ]	(	1	)
+diffuse_indirect	[ 0	locks=0 ]	(	1	)
+Reflection_15	[ 0	locks=0 ]	(	0	)
+refl_direct	[ 0	locks=0 ]	(	1	)
+refl_indirect	[ 0	locks=0 ]	(	1	)
+refl_isGlossiness	[ 0	locks=0 ]	(	"off"	)
+Coating_16	[ 0	locks=0 ]	(	0	)
+coat_direct	[ 0	locks=0 ]	(	1	)
+coat_indirect	[ 0	locks=0 ]	(	1	)
+coat_isGlossiness	[ 0	locks=0 ]	(	"off"	)
+Sheen_17	[ 0	locks=0 ]	(	0	)
+sheen_direct	[ 0	locks=0 ]	(	1	)
+sheen_indirect	[ 0	locks=0 ]	(	1	)
+sheen_isGlossiness	[ 0	locks=0 ]	(	"off"	)
+Refraction_18	[ 0	locks=0 ]	(	0	)
+refr_isGlossiness	[ 0	locks=0 ]	(	"off"	)
+decoupleIORFromRoughness	[ 0	locks=0 ]	(	"off"	)
+shadow_opacity	[ 0	locks=0 ]	(	0	)
+affects_alpha	[ 0	locks=0 ]	(	"on"	)
+block_volumes	[ 0	locks=0 ]	(	"on"	)
+Anisotropy_19	[ 0	locks=0 ]	(	0	)
+anisotropy_orientation	[ 0	locks=0 ]	(	2	)
+anisotropy_uvChannel	[ 0	locks=0 ]	(	uv	)
+anisotropy_tangentChannel	[ 0	locks=0 ]	(	uv_tangents	)
+shader_skipdefvalparms	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/Material1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	},
+	"__inputgroup_":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Advanced":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Coating":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Optimizations":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Overall":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Sub-Surface Multiple Scattering":{
+		"type":"string",
+		"value":"collapsed"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/COLOR.init"
+Content-Type: text/plain
+
+type = redshift::TextureSampler
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/COLOR.def"
+Content-Type: text/plain
+
+redshift_version
+3.0.62
+comment ""
+position -6.69423 1.98626
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "outColor"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0.475 0.812 0.204 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/COLOR.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+RS_shaderNodeMainSwitcher	[ 0	locks=0 ]	(	0	0	0	)
+Image_0	[ 0	locks=0 ]	(	0	)
+tex0	[ 0	locks=0 ]	(	`chs(\"../texColorPreview\")`	)
+tex0_layername	[ 0	locks=0 ]	(	""	)
+tex0_colorSpace	[ 0	locks=0 ]	(	""	)
+tex0_gamma	[ 0	locks=0 ]	(	0.61799999999999999	)
+UV_1	[ 0	locks=0 ]	(	0	)
+tspace_id	[ 0	locks=0 ]	(	uv	)
+mirrorU	[ 0	locks=0 ]	(	"off"	)
+mirrorV	[ 0	locks=0 ]	(	"off"	)
+wrapU	[ 0	locks=0 ]	(	"on"	)
+wrapV	[ 0	locks=0 ]	(	"on"	)
+Remap_2	[ 0	locks=0 ]	(	0	)
+scale	[ 0	locks=0 ]	(	1	1	)
+offset	[ 0	locks=0 ]	(	0	0	)
+rotate	[ 0	locks=0 ]	(	0	)
+color_multiplier	[ 0	locks=0 ]	(	1	1	1	)
+color_offset	[ 0	locks=0 ]	(	0	0	0	)
+alpha_multiplier	[ 0	locks=0 ]	(	1	)
+alpha_offset	[ 0	locks=0 ]	(	0	)
+alpha_is_luminance	[ 0	locks=0 ]	(	"off"	)
+invalid_color	[ 0	locks=0 ]	(	0	0	0	0	)
+filter_enable_type	[ 0	locks=0 ]	(	2	)
+filter_bicubic	[ 0	locks=0 ]	(	"off"	)
+prefer_sharp	[ 0	locks=0 ]	(	"on"	)
+mip_bias	[ 0	locks=0 ]	(	0	)
+shader_skipdefvalparms	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/COLOR.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	},
+	"__inputgroup_":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Adjust":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Advanced":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_General":{
+		"type":"string",
+		"value":"collapsed"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/NORMAL.init"
+Content-Type: text/plain
+
+type = redshift::TextureSampler
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/NORMAL.def"
+Content-Type: text/plain
+
+redshift_version
+3.0.62
+comment ""
+position -6.69423 -2.47263
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "outColor"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0.451 0.369 0.796 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/NORMAL.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+RS_shaderNodeMainSwitcher	[ 0	locks=0 ]	(	0	0	0	)
+Image_0	[ 0	locks=0 ]	(	0	)
+tex0	[ 0	locks=0 ]	(	`chs(\"../texNormalFull\")`	)
+tex0_layername	[ 0	locks=0 ]	(	""	)
+tex0_colorSpace	[ 0	locks=0 ]	(	""	)
+tex0_gamma	[ 0	locks=0 ]	(	1	)
+UV_1	[ 0	locks=0 ]	(	0	)
+tspace_id	[ 0	locks=0 ]	(	uv	)
+mirrorU	[ 0	locks=0 ]	(	"off"	)
+mirrorV	[ 0	locks=0 ]	(	"off"	)
+wrapU	[ 0	locks=0 ]	(	"on"	)
+wrapV	[ 0	locks=0 ]	(	"on"	)
+Remap_2	[ 0	locks=0 ]	(	0	)
+scale	[ 0	locks=0 ]	(	1	1	)
+offset	[ 0	locks=0 ]	(	0	0	)
+rotate	[ 0	locks=0 ]	(	0	)
+color_multiplier	[ 0	locks=0 ]	(	1	1	1	)
+color_offset	[ 0	locks=0 ]	(	0	0	0	)
+alpha_multiplier	[ 0	locks=0 ]	(	1	)
+alpha_offset	[ 0	locks=0 ]	(	0	)
+alpha_is_luminance	[ 0	locks=0 ]	(	"off"	)
+invalid_color	[ 0	locks=0 ]	(	0	0	0	0	)
+filter_enable_type	[ 0	locks=0 ]	(	2	)
+filter_bicubic	[ 0	locks=0 ]	(	"off"	)
+prefer_sharp	[ 0	locks=0 ]	(	"on"	)
+mip_bias	[ 0	locks=0 ]	(	0	)
+shader_skipdefvalparms	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/NORMAL.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	},
+	"__inputgroup_":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Adjust":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Advanced":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_General":{
+		"type":"string",
+		"value":"collapsed"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/ROUGHNESS.init"
+Content-Type: text/plain
+
+type = redshift::TextureSampler
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/ROUGHNESS.def"
+Content-Type: text/plain
+
+redshift_version
+3.0.62
+comment ""
+position -6.69423 -0.977125
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "outColor"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0.306 0.306 0.306 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/ROUGHNESS.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+RS_shaderNodeMainSwitcher	[ 0	locks=0 ]	(	0	0	0	)
+Image_0	[ 0	locks=0 ]	(	0	)
+tex0	[ 0	locks=0 ]	(	`chs(\"../texRoughessFull\")`	)
+tex0_layername	[ 0	locks=0 ]	(	""	)
+tex0_colorSpace	[ 0	locks=0 ]	(	sRGB	)
+tex0_gamma	[ 0	locks=0 ]	(	1	)
+UV_1	[ 0	locks=0 ]	(	0	)
+tspace_id	[ 0	locks=0 ]	(	uv	)
+mirrorU	[ 0	locks=0 ]	(	"off"	)
+mirrorV	[ 0	locks=0 ]	(	"off"	)
+wrapU	[ 0	locks=0 ]	(	"on"	)
+wrapV	[ 0	locks=0 ]	(	"on"	)
+Remap_2	[ 0	locks=0 ]	(	0	)
+scale	[ 0	locks=0 ]	(	1	1	)
+offset	[ 0	locks=0 ]	(	0	0	)
+rotate	[ 0	locks=0 ]	(	0	)
+color_multiplier	[ 0	locks=0 ]	(	1	1	1	)
+color_offset	[ 0	locks=0 ]	(	0	0	0	)
+alpha_multiplier	[ 0	locks=0 ]	(	1	)
+alpha_offset	[ 0	locks=0 ]	(	0	)
+alpha_is_luminance	[ 0	locks=0 ]	(	"off"	)
+invalid_color	[ 0	locks=0 ]	(	0	0	0	0	)
+filter_enable_type	[ 0	locks=0 ]	(	2	)
+filter_bicubic	[ 0	locks=0 ]	(	"off"	)
+prefer_sharp	[ 0	locks=0 ]	(	"on"	)
+mip_bias	[ 0	locks=0 ]	(	0	)
+shader_skipdefvalparms	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/ROUGHNESS.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	},
+	"__inputgroup_":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Adjust":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Advanced":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_General":{
+		"type":"string",
+		"value":"collapsed"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/BumpMap1.init"
+Content-Type: text/plain
+
+type = redshift::BumpMap
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/BumpMap1.def"
+Content-Type: text/plain
+
+redshift_version
+3.0.62
+comment ""
+position -4.71322 -2.47263
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "out"
+}
+inputsNamed3
+{
+0 	NORMAL 0 1 "input"
+}
+inputs
+{
+0 	NORMAL 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0.302 0.525 0.114 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/BumpMap1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+Texture_0	[ 0	locks=0 ]	(	0	)
+inuse	[ 0	locks=0 ]	(	"on"	)
+inputType	[ 0	locks=0 ]	(	1	)
+input	[ 0	locks=0 ]	(	0	0	0	)
+scale	[ 0	locks=0 ]	(	1	)
+factorInObjScale	[ 0	locks=0 ]	(	"on"	)
+Remap_1	[ 0	locks=0 ]	(	0	)
+oldrange_min	[ 0	locks=0 ]	(	0	)
+oldrange_max	[ 0	locks=0 ]	(	1	)
+newrange_min	[ 0	locks=0 ]	(	0	)
+newrange_max	[ 0	locks=0 ]	(	1	)
+unbiasedNormalMap	[ 0	locks=0 ]	(	"off"	)
+flipY	[ 0	locks=0 ]	(	"off"	)
+shader_skipdefvalparms	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER/BumpMap1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	},
+	"__inputgroup_":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Remap":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Texture":{
+		"type":"string",
+		"value":"collapsed"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER.order"
+Content-Type: text/plain
+
+6
+redshift_material1
+Material1
+COLOR
+NORMAL
+ROUGHNESS
+BumpMap1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/RS_LIVE_SHADER.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.0060475 2.27151
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	material1 1 1 "input1"
+}
+inputs
+{
+0 	material1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0 0 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+outputidx	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/material1.init"
+Content-Type: text/plain
+
+type = material
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/material1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.00507151 3.54024
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	IN 1 1 "input1"
+}
+inputs
+{
+0 	IN 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/material1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+style	[ 0	locks=0 ]	(	primitive	)
+uselabels	[ 0	locks=0 ]	(	"uselabels"	)
+createstylesheets	[ 0	locks=0 ]	(	"off"	)
+fullpath	[ 0	locks=0 ]	(	"on"	)
+num_materials	[ 0	locks=0 ]	(	1	)
+group1	[ 0	locks=0 ]	(	""	)
+shop_materialpath1	[ 0	locks=0 ]	(	../matnet1/RS_LIVE_SHADER	)
+localvar1	[ 0	locks=0 ]	(	"off"	)
+mergeoverride1	[ 0	locks=0 ]	(	"off"	)
+num_local1	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/material1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/IN.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/IN.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.00500002 4.7673
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0 0 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/IN.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/IN.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.order"
+Content-Type: text/plain
+
+4
+matnet1
+output0
+material1
+IN
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY--

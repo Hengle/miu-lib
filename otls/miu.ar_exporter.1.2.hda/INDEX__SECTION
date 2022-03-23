@@ -1,0 +1,14 @@
+Operator:     miu::ar_exporter::1.2
+Label:        AR Exporter
+Path:         oplib:/miu::Sop/ar_exporter::1.2?miu::Sop/ar_exporter::1.2
+Icon:         opdef:/miu::Sop/ar_exporter::1.2?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Sun Jan 23 16:40:45 2022
+

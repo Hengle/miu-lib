@@ -1,0 +1,14 @@
+Operator:     miu::quick_mask::2.2
+Label:        Quick Mask
+Path:         oplib:/miu::Sop/quick_mask::2.2?miu::Sop/quick_mask::2.2
+Icon:         opdef:/miu::Sop/quick_mask::2.2?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Fri Jan 21 19:11:08 2022
+

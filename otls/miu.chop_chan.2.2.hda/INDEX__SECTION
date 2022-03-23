@@ -1,0 +1,14 @@
+Operator:     miu::chop_chan::2.2
+Label:        CHOP Chan
+Path:         oplib:/miu::Sop/chop_chan::2.2?miu::Sop/chop_chan::2.2
+Icon:         opdef:/miu::Sop/chop_chan::2.2?chop-chan-black.svg
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       0 to 0
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Wed Jan 12 20:31:45 2022
+

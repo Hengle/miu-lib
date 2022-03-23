@@ -1,0 +1,33 @@
+{
+	"values":["19.0.455"
+	],
+	"indexes":{
+		"hdaroot/process_minimal_plane/output0.userdata":0,
+		"hdaroot/rename_transform_to_xform.userdata":0,
+		"hdaroot/blast_all.userdata":0,
+		"hdaroot/process_minimal_plane.userdata":0,
+		"hdaroot/apply_xform1.userdata":0,
+		"hdaroot/minimal_plane.userdata":0,
+		"hdaroot/add3.userdata":0,
+		"hdaroot/process_minimal_plane/plane_distance2.userdata":0,
+		"hdaroot/process_minimal_plane/add3.userdata":0,
+		"hdaroot/PLANE_SIMPLE1.userdata":0,
+		"hdaroot/switch2.userdata":0,
+		"hdaroot/merge1.userdata":0,
+		"hdaroot/OUT_CAM_POS.userdata":0,
+		"hdaroot/object_merge1.userdata":0,
+		"hdaroot/transformbyattrib1.userdata":0,
+		"hdaroot/PLANE_CAM.userdata":0,
+		"hdaroot/OUT_CAM_PROPS.userdata":0,
+		"hdaroot/OUT_STATIC_CAM_PLANE.userdata":0,
+		"hdaroot/OUT_ANIMATED_CAM_PLANE.userdata":0,
+		"hdaroot/apply_xform.userdata":0,
+		"hdaroot/plane_distance1.userdata":0,
+		"hdaroot/PLANE_SIMPLE.userdata":0,
+		"hdaroot/extracttransform2.userdata":0,
+		"hdaroot/switch1.userdata":0,
+		"hdaroot/attribpromote2.userdata":0,
+		"hdaroot/PLANE_CAM1.userdata":0,
+		"hdaroot/OUT_CAM_PLANE.userdata":0
+	}
+}

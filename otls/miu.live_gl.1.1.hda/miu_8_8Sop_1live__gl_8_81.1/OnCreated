@@ -1,0 +1,5 @@
+node = kwargs['node']
+node.setName("Live_GL", True)
+color = hou.Color()
+color.setRGB((0.624,0.329,0.396))
+node.setColor(color)

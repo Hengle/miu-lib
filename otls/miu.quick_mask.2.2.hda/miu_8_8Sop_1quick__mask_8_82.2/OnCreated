@@ -1,0 +1,8 @@
+node = kwargs['node']
+node.setName('Quick_Mask', True)
+p = node.parm("viz")
+p.pressButton()
+color = hou.Color()
+color.setRGB((0.327,1.4,0))
+node.setColor(color)
+node.setGenericFlag(hou.nodeFlag.DisplayComment, True)

@@ -1,0 +1,77 @@
+def openPath(kwargs):
+    import os
+    
+    node = kwargs['node']     
+    
+    dir = node.evalParm("dir") 
+    
+    if os.path.exists(dir):
+        if dir[-1] is not '/':
+            dir += '/'
+        hou.ui.showInFileBrowser(dir)
+    else:
+        hou.ui.displayMessage(text="Could not open directory:\n{dir}.".format(dir=dir),severity=hou.severityType.ImportantMessage)
+
+def cookNode(kwargs):
+    import nodegraphtopui
+    node = kwargs['node']
+    if(node.parm("preview") and node.parm("preview").eval() == 1):
+        hou.ui.displayMessage('To cook this, please uncheck "Quick Preview" checkbox')
+    else:
+        nodegraphtopui.cookOutputNode(kwargs['node'].parm('targettopnetwork').evalAsNode())
+
+def deleteFiles(kwargs):
+    displayMessage = hou.ui.displayMessage("Delete all Output Files?", ("OK", "Cancel"))
+    if(displayMessage==0):
+        import nodegraphtopui
+        nodegraphtopui.dirtyAll(kwargs['node'].parm('targettopnetwork').evalAsNode(), True)
+    
+def resetLOD(kwargs):
+    node = kwargs['node']
+    if(node.parm("preview").eval() == 1):
+        node.parm("lod").set(1)
+        
+def startService(kwargs):
+    import os, pdg
+    node = kwargs['node']
+    stateParm = node.parm("serviceState")
+    cpuCount = os.cpu_count()
+    cpuCharge = [ 1.0 - (1 / cpuCount), 0.5, 0.25, .125, .0625]
+    selectCpuCharge = node.parm("cpuCount").eval()
+    
+    cpuCount *= cpuCharge[selectCpuCharge]
+    
+    service_manager = pdg.ServiceManager.get()
+    service = service_manager.getService("ropfetch")
+    if(service):
+        print("Service is already running -> Stopping...")
+        service_manager.stopService("ropfetch")
+        service_manager.deregisterService("ropfetch")
+        stateParm.set("OFF")
+        print("Service stopped")
+    else:
+        print("Service is starting...")
+        service = service_manager.registerSessionService("ropfetch", int(cpuCount), 0, True, "$HOUDINI_TEMP_DIR")
+        stateParm.set("STARTING")
+        service_manager.startService("ropfetch")
+        stateParm.set("RUNNING")
+        print("Service started with " + str(int(cpuCount)) + " threads")
+        
+        
+def updateService(kwargs):
+    import os, pdg
+    node = kwargs['node']
+    cpuCount = os.cpu_count()
+    cpuCharge = [ 1.0 - (1 / cpuCount), 0.5, 0.25 ]
+    selectCpuCharge = node.parm("cpuCount").eval()
+    cpuCount *= cpuCharge[selectCpuCharge]
+    service_manager = pdg.ServiceManager.get()
+    if(service_manager.getService("ropfetch")):
+        print("Service is updating thread count to" + str(int(cpuCount)))
+        hou.phm.startService(kwargs)
+        hou.phm.startService(kwargs)
+    else:
+        print("Service is updating thread count to" + str(int(cpuCount)))
+        hou.phm.startService(kwargs)
+        
+    

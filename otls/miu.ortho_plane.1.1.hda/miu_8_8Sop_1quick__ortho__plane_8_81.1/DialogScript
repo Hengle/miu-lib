@@ -1,0 +1,138 @@
+# Dialog script for miu::quick_ortho_plane::1.1 automatically generated
+
+{
+    name	miu::quick_ortho_plane::1.1
+    script	quick_ortho_plane
+    label	"Quick Ortho Plane"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Reference Plane"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	ORTHO_PLANE
+    outputlabel	2	STATIC_PLANE
+
+    groupsimple {
+        name    "folder0"
+        label   "BASIC"
+
+        parm {
+            name    "res"
+            label   "Resolution"
+            type    integer
+            default { "1024" }
+            range   { 256! 4096 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm2"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "autoFit"
+            label   "Auto Fit"
+            type    toggle
+            default { "on" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "scalePlane"
+            label   "Zoom"
+            type    float
+            default { "1" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "dist"
+            label   "Dist"
+            type    float
+            default { "1" }
+            hidewhen "{ autoFit == 1 }"
+            range   { 0 2 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm3"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            hidewhen "{ autoFit == 1 }"
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "rotX"
+            label   "Rotation X"
+            type    float
+            default { "0" }
+            range   { -180 180 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "rotY"
+            label   "Rotation X"
+            type    float
+            default { "0" }
+            range   { -180 180 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "rotZ"
+            label   "Rotation Z"
+            type    float
+            default { "0" }
+            range   { -180 180 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupcollapsible {
+        name    "folder1"
+        label   "INIT PLANE ATTRIBS"
+
+        parm {
+            name    "color"
+            label   "Color"
+            type    color
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "Alpha"
+            label   "Alpha"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

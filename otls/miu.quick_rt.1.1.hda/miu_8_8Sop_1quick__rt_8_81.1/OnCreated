@@ -1,0 +1,6 @@
+node = kwargs['node']
+node.setName('Quick_RT', True)
+color = hou.Color()
+color.setRGB((0.45,.37,.8))
+node.setColor(color)
+

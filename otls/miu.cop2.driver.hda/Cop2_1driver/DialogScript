@@ -1,0 +1,46 @@
+# Dialog script for driver automatically generated
+
+{
+    name	driver
+    script	driver
+    label	Driver
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    groupsimple {
+        name    "folder0"
+        label   "Source RT Geometry"
+
+        parm {
+            name    "geoNode"
+            label   "Geometry"
+            type    oppath
+            default { "" }
+            parmtag { "oprelative" "." }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "geoFullPath"
+            label   "Geo Full Path"
+            type    string
+            default { "`opfullpath(chs(\"geoNode\"))`" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "resRT"
+            label   "RT"
+            type    integer
+            default { [ "detail(chs(\"geoFullPath\"), \"__res\", 0)" hscript-expr ] }
+            range   { 1024 8192 }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

@@ -1,0 +1,940 @@
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPfallbacks"
+Content-Type: application/external-reference
+
+.OPfallbacks
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPdummydefs"
+Content-Type: application/external-reference
+
+.OPdummydefs
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="node_type"
+Content-Type: text/plain
+
+Sop
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.init"
+Content-Type: text/plain
+
+type = miu::quick_composite::1.2
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.79502 5.32736
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 1 0.25 0.1 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.inp"
+Content-Type: text/plain
+
+2
+0 -3.3671709835654755 8.3075415162317778 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 -0.021215082416630171 8.5847320722257301 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/_init.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/_init.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.16418 1.35657
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	INPUT 1 1 "input1"
+}
+inputs
+{
+0 	INPUT 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0.188 0.529 0.459 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/_init.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+        parm {
+            name    "vex_precision"
+            baseparm
+            label   "VEX Precision"
+            export  none
+        }
+    }
+
+    parm {
+        name    "operation"
+        label   "Operation"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "sourceAttribA"
+        label   "Sourceattriba"
+        type    string
+        default { "" }
+    }
+    parm {
+        name    "sourceAttribB"
+        label   "Sourceattribb"
+        type    string
+        default { "" }
+    }
+    parm {
+        name    "sourceAttribAa"
+        label   "Sourceattribaa"
+        type    string
+        default { "" }
+    }
+    parm {
+        name    "sourceAttribBa"
+        label   "Sourceattribba"
+        type    string
+        default { "" }
+    }
+    parm {
+        name    "targetAttrib"
+        label   "Targetattrib"
+        type    string
+        default { "" }
+    }
+    parm {
+        name    "switchOrder"
+        label   "Switchorder"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "tarCompSelector"
+        label   "Tarcompselector"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/_init.chn"
+Content-Type: text/plain
+
+{
+    channel targetAttrib {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../targetAttrib\") }
+    }
+    channel operation {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../operation\") }
+    }
+    channel switchOrder {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../switchOrder\") }
+    }
+    channel tarCompSelector {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../tarCompSelector\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/_init.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"detail"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"s@___class = chs(\"../attrA/inclass\");
+
+s[]@___pointattribs = detailintrinsic(0,\"pointattributes\");
+s[]@___primattribs = detailintrinsic(0,\"primitiveattributes\");
+s[]@___vertexattribs = detailintrinsic(0,\"vertexattributes\");
+s[]@___detailattribs = detailintrinsic(0,\"detailattributes\");
+
+s@___srcAttribA = chs(\"sourceAttribA\");
+s@___srcAttribB = chs(\"sourceAttribB\");
+
+s@___srcAttribAa = chs(\"sourceAttribAa\");
+s@___srcAttribBa = chs(\"sourceAttribBa\");
+
+i@___srcAttribA_size = attribsize(0, @___class, @___srcAttribA);
+i@___srcAttribB_size = attribsize(0, @___class, @___srcAttribB);
+
+i@___srcAttribAa_size = attribsize(0, @___class, @___srcAttribAa);
+i@___srcAttribBa_size= attribsize(0, @___class, @___srcAttribBa);
+
+i@___srcAttribA_isFloat = i@___srcAttribA_size < 2;
+i@___srcAttribB_isFloat = i@___srcAttribB_size < 2;
+
+i@___srcAttribAa_isFloat = i@___srcAttribAa_size < 2;;
+i@___srcAttribBa_isFloat = i@___srcAttribBa_size < 2;;
+
+s@___tarAttrib = chs(\"targetAttrib\");
+i@___tarCompSelector = chi(\"tarCompSelector\");
+i@___operationIndex = chi(\"operation\");
+i@___switchOrder = chi(\"switchOrder\");
+
+string operations[]= array(
+'AoverB', 'AinsideB', 
+'AoutsideB', 'AatopB', 
+'AxorB', 'A', 
+'B', 'clear', 
+'multiply', 'screen', 
+'overlay', 'darken', 
+'lighten', 'colordodge', 
+'colorburn', 'hardlight', 
+'softlight', \"difference\", 
+'exclusion');
+s[]@___operations = operations;
+s@___operationName = s@___operations[clamp(i@___operationIndex, 0, len(operations) -1)];"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+operation	[ 0	locks=0 ]	(	[ operation	0 ] 	)
+sourceAttribA	[ 0	locks=0 ]	(	`chs(\"../attrA/inname\")`	)
+sourceAttribB	[ 0	locks=0 ]	(	`chs(\"../attrB/inname\")`	)
+sourceAttribAa	[ 0	locks=0 ]	(	`chs(\"../attrAa/inname\")`	)
+sourceAttribBa	[ 0	locks=0 ]	(	`chs(\"../attrBa/inname\")`	)
+targetAttrib	[ 0	locks=0 ]	(	[ targetAttrib	"" ] 	)
+switchOrder	[ 0	locks=0 ]	(	[ switchOrder	0 ] 	)
+tarCompSelector	[ 0	locks=0 ]	(	[ tarCompSelector	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/_init.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/INPUT.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/INPUT.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.0262151 2.70225
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switchif1 1 1 "input1"
+}
+inputs
+{
+0 	switchif1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0 0 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/INPUT.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/INPUT.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/get_selected_comp.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/get_selected_comp.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.16418 0.27877
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	_init 0 1 "input1"
+}
+inputs
+{
+0 	_init 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0.188 0.529 0.459 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/get_selected_comp.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+        parm {
+            name    "vex_precision"
+            baseparm
+            label   "VEX Precision"
+            export  none
+        }
+    }
+
+    parm {
+        name    "compA"
+        label   "Component A"
+        type    ordinal
+        default { "0" }
+        menu {
+            [ "result = []" ]
+            [ "node = hou.pwd()" ]
+            [ "compList = ['x', 'y', 'z', 'w']" ]
+            [ "try:" ]
+            [ "    attrSize = node.geometry().attribValue(\"___srcAttribA_size\")" ]
+            [ "    attrName = node.geometry().attribValue(\"___srcAttribA\")" ]
+            [ "    isFloat = attrSize < 2" ]
+            [ "    for i in range(attrSize):" ]
+            [ "        comp = compList[i]" ]
+            [ "        if(isFloat):" ]
+            [ "            comp = attrName" ]
+            [ "            result.append(comp)" ]
+            [ "            result.append(comp)" ]
+            [ "        else:" ]
+            [ "            comp = attrName + '_' + comp" ]
+            [ "            result.append(comp)" ]
+            [ "            result.append(comp)" ]
+            [ "            " ]
+            [ "except Exception:" ]
+            [ "    pass" ]
+            [ "return result" ]
+            language python
+        }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "compAa"
+        label   "Component A Alpha"
+        type    ordinal
+        default { "0" }
+        menu {
+            [ "result = []" ]
+            [ "node = hou.pwd()" ]
+            [ "compList = ['x', 'y', 'z', 'w']" ]
+            [ "try:" ]
+            [ "    attrSize = node.geometry().attribValue(\"___srcAttribAa_size\")" ]
+            [ "    attrName = node.geometry().attribValue(\"___srcAttribAa\")" ]
+            [ "    isFloat = attrSize < 2" ]
+            [ "    for i in range(attrSize):" ]
+            [ "        comp = compList[i]" ]
+            [ "        if(isFloat):" ]
+            [ "            comp = attrName" ]
+            [ "            result.append(comp)" ]
+            [ "            result.append(comp)" ]
+            [ "        else:" ]
+            [ "            comp = attrName + '_' + comp" ]
+            [ "            result.append(comp)" ]
+            [ "            result.append(comp)" ]
+            [ "            " ]
+            [ "except Exception:" ]
+            [ "    pass" ]
+            [ "return result" ]
+            language python
+        }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "compB"
+        label   "Component B"
+        type    ordinal
+        default { "0" }
+        menu {
+            [ "result = []" ]
+            [ "node = hou.pwd()" ]
+            [ "compList = ['x', 'y', 'z', 'w']" ]
+            [ "" ]
+            [ "try:" ]
+            [ "    attrSize = node.geometry().attribValue(\"___srcAttribB_size\")" ]
+            [ "    attrName = node.geometry().attribValue(\"___srcAttribB\")" ]
+            [ "    isFloat = attrSize < 2" ]
+            [ "    for i in range(attrSize):" ]
+            [ "        comp = compList[i]" ]
+            [ "        if(isFloat):" ]
+            [ "            comp = attrName" ]
+            [ "            result.append(comp)" ]
+            [ "            result.append(comp)" ]
+            [ "        else:" ]
+            [ "            comp = attrName + '_' + comp" ]
+            [ "            result.append(comp)" ]
+            [ "            result.append(comp)" ]
+            [ "            " ]
+            [ "except Exception:" ]
+            [ "    pass" ]
+            [ "return result" ]
+            language python
+        }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "compBa"
+        label   "Component B Alpha"
+        type    ordinal
+        default { "0" }
+        menu {
+            [ "result = []" ]
+            [ "node = hou.pwd()" ]
+            [ "compList = ['x', 'y', 'z', 'w']" ]
+            [ "" ]
+            [ "try:" ]
+            [ "    attrSize = node.geometry().attribValue(\"___srcAttribBa_size\")" ]
+            [ "    attrName = node.geometry().attribValue(\"___srcAttribBa\")" ]
+            [ "    isFloat = attrSize < 2" ]
+            [ "    for i in range(attrSize):" ]
+            [ "        comp = compList[i]" ]
+            [ "        if(isFloat):" ]
+            [ "            comp = attrName" ]
+            [ "            result.append(comp)" ]
+            [ "            result.append(comp)" ]
+            [ "        else:" ]
+            [ "            comp = attrName + '_' + comp" ]
+            [ "            result.append(comp)" ]
+            [ "            result.append(comp)" ]
+            [ "            " ]
+            [ "except Exception:" ]
+            [ "    pass" ]
+            [ "return result" ]
+            language python
+        }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "AaConstant"
+        label   "Aaconstant"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "BaConstant"
+        label   "Baconstant"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "isAaConstant"
+        label   "Isaaconstant"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "isBaConstant"
+        label   "Isbaconstant"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/get_selected_comp.chn"
+Content-Type: text/plain
+
+{
+    channel isAaConstant {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../isAaConstant\") }
+    }
+    channel isBaConstant {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../isBaConstant\") }
+    }
+    channel AaConstant {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../AaConstant\") }
+    }
+    channel BaConstant {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../BaConstant\") }
+    }
+    channel compA {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../compA\") }
+    }
+    channel compAa {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../compAa\") }
+    }
+    channel compB {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../compB\") }
+    }
+    channel compBa {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../compBa\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/get_selected_comp.parm"
+Content-Type: text/plain
+
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY--

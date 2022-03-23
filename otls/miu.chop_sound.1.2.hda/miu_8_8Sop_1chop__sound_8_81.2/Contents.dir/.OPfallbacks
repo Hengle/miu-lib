@@ -1,0 +1,6 @@
+Sop/attribdelete C:/PROGRA~1/SIDEEF~1/HOUDIN~1.455/houdini/otls/OPlibSop.hda
+Sop/attribdelete otls/OPlibSop.hda
+Sop/attribwrangle C:/PROGRA~1/SIDEEF~1/HOUDIN~1.455/houdini/otls/OPlibSop.hda
+Sop/attribwrangle otls/OPlibSop.hda
+sb::Chop/chop_process::1.0 E:/_LIBRARIES/CLOUD/LIBS/HOUDINI/miu-main/otls/miu.chop.process.1.0.hda
+sb::Chop/chop_process::1.0 otls/miu.chop.process.1.0.hda

@@ -1,0 +1,451 @@
+# Dialog script for miu::chop_chan::2.2 automatically generated
+
+{
+    name	miu::chop_chan::2.2
+    script	sb_quick_chop_chan
+    label	"CHOP Chan"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"DETAIL ATTRIBUTES"
+
+    groupsimple {
+        name    "folder7"
+        label   "PARAMETERS"
+
+        parm {
+            name    "labelparm4"
+            label   "labelparm3"
+            type    label
+            invisible
+            nolabel
+            default { "--- DIVE INSIDE TO CREATE NEW CHANNELS ---" }
+        }
+        parm {
+            name    "sepparm2"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "open_motion_tab"
+            label   "Open Motion Tab"
+            type    button
+            joinnext
+            default { "0" }
+            help    "If no MOTION FX tab currently visible, open a floating pane tab, if exist : focus the currently selected CHOP node in the first visible MOTION FX pane tab. ------- "
+            disablewhen "{ auto_focus != 0 }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "button_icon" "" }
+            parmtag { "script_callback" "hou.phm().openMotionTab(kwargs)" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "sepparm5"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "auto_focus"
+            label   "*AUTO FOCUS"
+            type    toggle
+            invisible
+            default { "off" }
+            help    "if OFF : Open Motion Tab button open a new floating window at mouse cursor. If ON, selecting the node return floating window or focus directly in the first currently visible MOTION FX pane tab"
+            parmtag { "script_callback" "hou.phm().autoFocus(kwargs)" }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupsimple {
+            name    "folder8"
+            label   "ATTRIBUTE"
+
+            parm {
+                name    "attribName"
+                label   "ATTRIBUTE NAME"
+                type    string
+                default { "ch" }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "gcolor"
+                label   "CHANNEL_COLOR"
+                type    color
+                size    3
+                default { "0.9" "0" "0" }
+                range   { 0! 1! }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "varying_default" "1" }
+            }
+        }
+
+        groupcollapsible {
+            name    "folder6"
+            label   "OUTPUT CHOPS"
+
+            parm {
+                name    "chop_out_path"
+                label   "CHOP PATH"
+                type    oppath
+                default { "`opfullpath(FX/CHANS_OUT)`" }
+                parmtag { "oprelative" "." }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "chop_out_path_guide"
+                label   "CHOP PATH W/GUIDE"
+                type    oppath
+                default { "`opfullpath(FX/OUT)`" }
+                hidewhen "{ audio_ref != 1 }"
+                parmtag { "oprelative" "." }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+        groupcollapsible {
+            name    "folder5"
+            label   "EXTERNAL REFERENCE CHOP"
+
+            parm {
+                name    "audio_ref"
+                label   "CHOP GUIDE"
+                type    toggle
+                nolabel
+                joinnext
+                default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "nodepath"
+                label   "PATH"
+                type    oppath
+                default { "" }
+                disablewhen "{ audio_ref != 1 }"
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "oprelative" "." }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm4"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                hidewhen "{ audio_ref != 1 }"
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+            parm {
+                name    "gcolorstep"
+                label   "COLOR STEP"
+                type    float
+                default { "0.1" }
+                hidewhen "{ audio_ref != 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            groupsimple {
+                name    "folder2"
+                label   "FILTER"
+                hidewhen "{ audio_ref != 1 }"
+
+                parm {
+                    name    "cutofflow"
+                    label   "LOW_CUT"
+                    type    float
+                    default { "0" }
+                    range   { 0! 2000 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "cutoffhigh"
+                    label   "HIGH CUT"
+                    type    float
+                    default { "1000" }
+                    range   { 0! 5000 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "rolloff"
+                    label   "Q"
+                    type    float
+                    default { "2" }
+                    range   { 0! 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+            }
+
+        }
+
+        groupsimple {
+            name    "folder0"
+            label   "MAIN SHAPE"
+
+            parm {
+                name    "start_time"
+                label   "START TIME"
+                type    float
+                default { "0" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "length"
+                label   "LENGTH"
+                type    float
+                default { "2" }
+                range   { 0 4 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "offset"
+                label   "OFFSET"
+                type    float
+                default { "0" }
+                range   { -1 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "addend"
+                label   "EXTEND END"
+                type    float
+                default { "0" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "startF"
+                label   "START FRAME"
+                type    float
+                invisible
+                default { [ "round((ch(\"start_time\")*$FPS)+1)" hscript-expr ] }
+                disablewhen "{ startF != -4568715 }"
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "lengthF"
+                label   "END FRAME"
+                type    float
+                invisible
+                default { [ "round(((ch(\"start_time\")+ch(\"length\"))*$FPS)+1)" hscript-expr ] }
+                disablewhen "{ startF != -4568715 }"
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "rampV"
+                label   "RESHAPE VALUES"
+                type    ramp_flt
+                default { "4" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "rampbasis_var" "rampV_the_basis_strings" }
+                parmtag { "rampbasisdefault" "bspline" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( bspline ) 2pos ( 0.33000001311302185 ) 2value ( 0 ) 2interp ( bspline ) 3pos ( 0.6600000262260437 ) 3value ( 1 ) 3interp ( bspline ) 4pos ( 1 ) 4value ( 1 ) 4interp ( bspline )" }
+                parmtag { "rampkeys_var" "rampV_the_key_positions" }
+                parmtag { "rampshowcontrolsdefault" "1" }
+                parmtag { "rampvalues_var" "rampV_the_key_values" }
+                parmtag { "shaderparmcontexts" "chop" }
+            }
+            parm {
+                name    "blendfunc"
+                label   "Shape"
+                type    ordinal
+                invisible
+                default { "lin" }
+                menu {
+                    "lin"   "Linear"
+                    "ei"    "Ease in"
+                    "eo"    "Ease out"
+                    "cos"   "Ease in Ease out"
+                    "cub"   "Cubic"
+                    "add"   "Add"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            groupcollapsible {
+                name    "folder4"
+                label   "LAG"
+
+                parm {
+                    name    "activ_lag"
+                    label   "LAG"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "lag_length"
+                    label   "ATTACK"
+                    type    float
+                    default { "0.2" }
+                    hidewhen "{ activ_lag != 1 }"
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "lag_decay"
+                    label   "DECAY"
+                    type    float
+                    default { "0.2" }
+                    hidewhen "{ activ_lag != 1 }"
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "lag_lengthF"
+                    label   "END LAG FRAME"
+                    type    float
+                    invisible
+                    default { [ "round(((ch(\"start_time\")+ch(\"length\")+ch(\"lag_length\")) * $FPS)+1)" hscript-expr ] }
+                    disablewhen "{ startF != -4568715 }"
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+            }
+
+            groupcollapsible {
+                name    "folder1"
+                label   "SMOOTH"
+
+                parm {
+                    name    "activ_smooth"
+                    label   "SMOOTH"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "type"
+                    label   "Type"
+                    type    ordinal
+                    default { "gauss" }
+                    hidewhen "{ activ_smooth != 1 }"
+                    menu {
+                        "gauss"     "Gaussian"
+                        "halfgauss" "Left Half Gaussian"
+                        "box"       "Box"
+                        "halfbox"   "Left Half Box"
+                        "edge"      "Edge Detect"
+                        "sharpen"   "Sharpen"
+                        "despike"   "De-spike"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "effect"
+                    label   "Effect"
+                    type    float
+                    default { "1" }
+                    hidewhen "{ activ_smooth != 1 }"
+                    range   { 0 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "width"
+                    label   "Filter Width"
+                    type    float
+                    default { "0.1" }
+                    hidewhen "{ activ_smooth != 1 }"
+                    range   { 0.001! 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "spike"
+                    label   "Spike Tolerance"
+                    type    float
+                    default { "0.1" }
+                    disablewhen "{ type != despike }"
+                    hidewhen "{ activ_smooth != 1 }"
+                    range   { 0! 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+            }
+
+        }
+
+    }
+
+    groupcollapsible {
+        name    "folder3"
+        label   "*[ - INFOS - ]"
+        invisibletab
+
+        parm {
+            name    "labelparm"
+            label   "AUTO FOCUS - >"
+            type    label
+            default { "" }
+        }
+        parm {
+            name    "labelparm2"
+            label   "- OFF"
+            type    label
+            nolabel
+            default { "Be aware using this function, actually it is a bit buggy (parm recursion, unsolved at this time, but you can ignore it...)" }
+        }
+        parm {
+            name    "labelparm6"
+            label   "- BE AWARE"
+            type    label
+            nolabel
+            default { "if OFF : Open Motion Tab button open a new floating window at mouse cursor" }
+        }
+        parm {
+            name    "labelparm5"
+            label   "- ON"
+            type    label
+            nolabel
+            default { "if ON : Selecting the node return floating window or focus directly in the first currently visible MOTION FX pane tab" }
+        }
+        parm {
+            name    "labelparm3"
+            label   "labelparm3"
+            type    label
+            nolabel
+            default { "------------------------------------" }
+        }
+    }
+
+}

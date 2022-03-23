@@ -1,0 +1,13 @@
+def openParms(kwargs):
+    n = kwargs['node']
+    p = n.parm('cam')
+    cn = hou.node(p.eval())
+    sel = cn
+    if sel:
+        desktop = hou.ui.curDesktop()
+        pane = desktop.createFloatingPane(hou.paneTabType.Parm)
+        pane.setCurrentNode(sel)
+        pane.setPin(True)
+        n.setCurrent(1)
+    else:
+        print("Please, set a Camera path")

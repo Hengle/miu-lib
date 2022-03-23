@@ -1,0 +1,14 @@
+Operator:     miu::profile_shape::1.0
+Label:        Profile Shape
+Path:         oplib:/miu::Sop/profile_shape::1.0?miu::Sop/profile_shape::1.0
+Icon:         opdef:/miu::Sop/profile_shape::1.0?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       0 to 0
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Sat Jan 15 14:09:19 2022
+

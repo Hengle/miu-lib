@@ -1,0 +1,6 @@
+me = kwargs['node']
+me.setName('CHOP_Sound', True)
+color = hou.Color()
+color.setRGB((0.3,0.5,0.1))
+
+me.setColor(color)

@@ -1,0 +1,594 @@
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="node_type"
+Content-Type: text/plain
+
+Cop2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.init"
+Content-Type: text/plain
+
+type = driver
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.def"
+Content-Type: text/plain
+
+comment ""
+position -66.6422 -10.4655
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.cop2"
+Content-Type: text/plain
+
+2
+10
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER.init"
+Content-Type: text/plain
+
+type = vopcop2gen
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER.def"
+Content-Type: text/plain
+
+comment ""
+position 0 5.05
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0.188 0.529 0.459 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "stdswitcher5"
+        label   "Compiler"
+        invisibletab
+
+        parm {
+            name    "vop_compiler"
+            baseparm
+            label   "Compiler"
+            export  none
+        }
+        parm {
+            name    "vop_forcecompile"
+            baseparm
+            label   "Force Compile"
+            export  none
+        }
+    }
+
+    group {
+        name    "stdswitcher5_1"
+        label   "Mask"
+        invisibletab
+
+        parm {
+            name    "effectamount"
+            baseparm
+            label   "Effect Amount"
+            export  none
+        }
+        parm {
+            name    "maskplane"
+            baseparm
+            label   "Mask Plane"
+            export  none
+        }
+        parm {
+            name    "maskresize"
+            baseparm
+            label   "Resize Mask to Fit Image"
+            export  none
+        }
+        parm {
+            name    "maskinvert"
+            baseparm
+            label   "Invert Mask"
+            export  none
+        }
+    }
+
+    group {
+        name    "stdswitcher5_2"
+        label   "Image"
+        invisibletab
+
+        parm {
+            name    "overridesize"
+            baseparm
+            label   "Override Global Size"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "size"
+            baseparm
+            label   "Override Size"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "sizemenu"
+            baseparm
+            label   "Size Menu"
+            export  none
+        }
+        parm {
+            name    "overrideaspect"
+            baseparm
+            label   "Override Pixel Aspect"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "aspect"
+            baseparm
+            label   "Pixel Aspect Ratio"
+            export  none
+        }
+        parm {
+            name    "planes"
+            baseparm
+            label   "Image Planes"
+            export  none
+        }
+        parm {
+            name    "addplanes"
+            baseparm
+            label   "Add Plane"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "addplaneop"
+            baseparm
+            label   ""
+            nolabel
+            export  none
+        }
+        parm {
+            name    "customplanes"
+            baseparm
+            label   "Custom Planes"
+            export  none
+        }
+        parm {
+            name    "depth"
+            baseparm
+            label   "Raster Depth"
+            joinnext
+            export  all
+        }
+        parm {
+            name    "depthmenu"
+            baseparm
+            label   "Depth Menu"
+            export  all
+        }
+        parm {
+            name    "depthglobal"
+            baseparm
+            label   "Global Depth Setting"
+            invisible
+            export  none
+        }
+        parm {
+            name    "usebwpoints"
+            baseparm
+            label   "Use Custom Black/White Points"
+            joinnext
+            export  all
+        }
+        parm {
+            name    "bwpoints"
+            baseparm
+            label   "Black/White Points"
+            export  all
+        }
+        parm {
+            name    "interlace"
+            baseparm
+            label   "Interlacing"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "idominance"
+            baseparm
+            label   ""
+            nolabel
+            export  none
+        }
+    }
+
+    group {
+        name    "stdswitcher5_3"
+        label   "Sequence"
+        invisibletab
+
+        parm {
+            name    "overriderange"
+            baseparm
+            label   "Override Global Range"
+            export  all
+        }
+        parm {
+            name    "singleimage"
+            baseparm
+            label   "Still Image"
+            export  all
+        }
+        parm {
+            name    "start"
+            baseparm
+            label   "Start Frame"
+            export  all
+        }
+        parm {
+            name    "length"
+            baseparm
+            label   "Length"
+            export  all
+        }
+        parm {
+            name    "preextend"
+            baseparm
+            label   "Pre Extend"
+            export  none
+        }
+        parm {
+            name    "prehold"
+            baseparm
+            label   "Pre Hold"
+            export  none
+        }
+        parm {
+            name    "postextend"
+            baseparm
+            label   "Post Extend"
+            export  none
+        }
+        parm {
+            name    "posthold"
+            baseparm
+            label   "Post Hold"
+            export  none
+        }
+    }
+
+    parm {
+        name    "preview"
+        label   "Preview"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "targetRes"
+        label   "Resolution"
+        type    intvector2
+        size    2
+        default { "0" "0" }
+        range   { -1 1 }
+        parmtag { "script_callback_language" "python" }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER.chn"
+Content-Type: text/plain
+
+{
+    channel size1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $CXRES }
+    }
+    channel size2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $CYRES }
+    }
+    channel aspect {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $CPIXA }
+    }
+    channel depthglobal {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $CDEPTH }
+    }
+    channel bwpoints1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $CBP }
+    }
+    channel bwpoints2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $CWP }
+    }
+    channel start {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FSTART }
+    }
+    channel length {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $NFRAMES }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	0	0	0	)
+vop_compiler	[ 0	locks=0 ]	(	"vcc -q $VOP_INCLUDEPATH -o $VOP_OBJECTFILE -e $VOP_ERRORFILE $VOP_SOURCEFILE"	)
+vop_forcecompile	[ 0	locks=0 ]	(	0	)
+effectamount	[ 0	locks=0 ]	(	1	)
+maskplane	[ 0	locks=0 ]	(	A	)
+maskresize	[ 0	locks=0 ]	(	"off"	)
+maskinvert	[ 0	locks=0 ]	(	"off"	)
+overridesize	[ 0	locks=0 ]	(	"off"	)
+size	[ 0	locks=0 ]	(	[ size1	0 ] 	[ size2	0 ] 	)
+sizemenu	[ 0	locks=0 ]	(	0	)
+overrideaspect	[ 0	locks=0 ]	(	"off"	)
+aspect	[ 0	locks=0 ]	(	[ aspect	0 ] 	)
+planes	[ 0	locks=0 ]	(	"rgba"	)
+addplanes	[ 0	locks=0 ]	(	"m"	)
+addplaneop	[ 0	locks=0 ]	(	"replace"	)
+customplanes	[ 0	locks=0 ]	(	""	)
+depth	[ 0	locks=0 ]	(	"default"	)
+depthmenu	[ 0	locks=0 ]	(	0	)
+depthglobal	[ 0	locks=0 ]	(	[ depthglobal	0 ] 	)
+usebwpoints	[ 0	locks=0 ]	(	"off"	)
+bwpoints	[ 0	locks=0 ]	(	[ bwpoints1	0 ] 	[ bwpoints2	0 ] 	)
+interlace	[ 0	locks=0 ]	(	"none"	)
+idominance	[ 0	locks=0 ]	(	"odd"	)
+overriderange	[ 0	locks=0 ]	(	"off"	)
+singleimage	[ 0	locks=0 ]	(	"off"	)
+start	[ 0	locks=0 ]	(	[ start	0 ] 	)
+length	[ 0	locks=0 ]	(	[ length	0 ] 	)
+preextend	[ 0	locks=0 ]	(	"black"	)
+prehold	[ 0	locks=0 ]	(	0	)
+postextend	[ 0	locks=0 ]	(	"black"	)
+posthold	[ 0	locks=0 ]	(	0	)
+stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
+preview	[ 0	locks=0 ]	(	0	)
+targetRes	[ 0	locks=0 ]	(	1024	1024	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER.cop2"
+Content-Type: text/plain
+
+2
+32
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER/global1.init"
+Content-Type: text/plain
+
+type = global
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER/global1.def"
+Content-Type: text/plain
+
+comment ""
+position 1 1
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER/global1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+contexttype	[ 0	locks=0 ]	(	cop2	)
+usemenu	[ 0	locks=0 ]	(	"off"	)
+varname	[ 0	locks=0 ]	(	P	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER/global1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER/output1.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER/output1.def"
+Content-Type: text/plain
+
+comment ""
+position 5 1
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author simon@ws-win
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER/output1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+contexttype	[ 0	locks=0 ]	(	cop2	)
+outputcodelast	[ 0	locks=0 ]	(	"on"	)
+parmorder	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER/output1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER.order"
+Content-Type: text/plain
+
+2
+global1
+output1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/DRIVER.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY--

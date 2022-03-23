@@ -1,0 +1,14 @@
+Operator:     miu::quick_rt::1.1
+Label:        Quick RT
+Path:         oplib:/miu::Sop/quick_rt::1.1?miu::Sop/quick_rt::1.1
+Icon:         opdef:/miu::Sop/quick_rt::1.1?ray-black.svg
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       0 to 3
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Mon Jan 10 21:20:42 2022
+

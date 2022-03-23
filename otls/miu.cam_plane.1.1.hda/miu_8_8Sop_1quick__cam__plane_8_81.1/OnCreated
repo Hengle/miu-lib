@@ -1,0 +1,5 @@
+node = kwargs['node']
+node.setName('Quick_Cam_Plane', True)
+color = hou.Color()
+color.setRGB((0.38,0.69,0.94))
+node.setColor(color)

@@ -1,0 +1,6 @@
+me = kwargs['node']
+
+color = hou.Color()
+color.setRGB((0.6,1,0.2))
+
+me.setColor(color)

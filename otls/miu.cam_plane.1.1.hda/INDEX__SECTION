@@ -1,0 +1,15 @@
+Operator:     miu::quick_cam_plane::1.1
+Label:        Quick Cam Plane
+Path:         oplib:/miu::Sop/quick_cam_plane::1.1?miu::Sop/quick_cam_plane::1.1
+Icon:         opdef:/miu::Sop/quick_cam_plane::1.1?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       0 to 0
+Outputs:      3
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Mon Jan 10 21:02:39 2022
+

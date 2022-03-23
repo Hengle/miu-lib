@@ -1,0 +1,12 @@
+node = kwargs['node']
+node.setName("Rock_Generator", True)
+color = hou.Color()
+color.setRGB((.49, 0.334, 0.264))
+node.setColor(color)
+node.parm("_cook_controls_generatestaticworkitems").pressButton()
+topNode = node.parm('targettopnetwork').evalAsNode()
+topNode.generateStaticWorkItems(block=True)
+pdgNode = topNode.node("./OUT").getPDGNode()
+workItems = pdgNode.workItems
+workItem = workItems[0]
+workItem.makeActive()

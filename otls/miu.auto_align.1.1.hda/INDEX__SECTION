@@ -1,0 +1,15 @@
+Operator:     miu::auto_align::1.1
+Label:        Auto Align
+Path:         oplib:/miu::Sop/auto_align::1.1?miu::Sop/auto_align::1.1
+Icon:         opdef:/miu::Sop/auto_align::1.1?auto-align-black.svg
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Outputs:      5
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Tue Jan 11 12:38:09 2022
+

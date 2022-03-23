@@ -1,0 +1,14 @@
+{
+	"hdaroot/IN.def":1640625374,
+	"hdaroot/material1.def":1641898561,
+	"hdaroot/output0.def":1640625075,
+	"hdaroot/matnet1/RS_LIVE_SHADER/ROUGHNESS.def":1641898561,
+	"hdaroot/matnet1/RS_LIVE_SHADER/BumpMap1.def":1641201143,
+	"hdaroot/matnet1/RS_LIVE_SHADER/COLOR.def":1641898561,
+	"hdaroot/matnet1/RS_LIVE_SHADER/Material1.def":1641201162,
+	"hdaroot/matnet1/RS_LIVE_SHADER/redshift_material1.def":1641201162,
+	"hdaroot/matnet1/RS_LIVE_SHADER.def":1641898610,
+	"hdaroot/matnet1.def":1641201162,
+	"hdaroot/matnet1/RS_LIVE_SHADER/NORMAL.def":1641898561,
+	"hdaroot.def":1641898981
+}

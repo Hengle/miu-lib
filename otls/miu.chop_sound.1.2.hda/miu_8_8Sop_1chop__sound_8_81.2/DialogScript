@@ -1,0 +1,1456 @@
+# Dialog script for miu::chop_sound::1.2 automatically generated
+
+{
+    name	miu::chop_sound::1.2
+    script	sb_chop_import::1.0
+    label	"CHOP Sound"
+
+    help {
+	""
+    }
+
+    inputlabel	1	INPUT_GEO
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    inputlabel	5	"Sub-Network Input #5"
+    inputlabel	6	"Sub-Network Input #6"
+    inputlabel	7	"Sub-Network Input #7"
+    inputlabel	8	"Sub-Network Input #8"
+    inputlabel	9	"Sub-Network Input #9"
+    inputlabel	10	"Sub-Network Input #10"
+
+    parm {
+        name    "sepparm15"
+        label   "Separator"
+        type    separator
+        invisible
+        default { "" }
+    }
+    parm {
+        name    "chop_select_input"
+        label   "Select Input"
+        type    ordinal
+        invisible
+        joinnext
+        default { "1" }
+        menu {
+            "0" "Parameter"
+            "1" "File"
+            "2" "CHOP"
+        }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        invisible
+        default { "" }
+    }
+    groupsimple {
+        name    "folder0"
+        label   "MAIN PARAMETERS"
+
+        parm {
+            name    "sepparm5"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "open_motion_tab"
+            label   "Open Motion Tab"
+            type    button
+            joinnext
+            default { "0" }
+            parmtag { "script_callback" "hou.pwd().hdaModule().openMotionTab(kwargs)" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "preview_audio"
+            label   "Preview Audio"
+            type    button
+            joinnext
+            default { "0" }
+            parmtag { "script_callback" "hou.pwd().hdaModule().previewOriginal(kwargs)" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm4"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "sepparm6"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+    }
+
+    groupsimple {
+        name    "input_file"
+        label   "INPUT FILE"
+
+        parm {
+            name    "sepparm13"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "sepparm7"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "file"
+            label   "Audio File"
+            type    file
+            default { "$MIU/sound/djrum.wav" }
+            menureplace {
+                [ "opmenu -l sb_chop_import/FILE_INPUT file" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "filechooser_mode" "read" }
+        }
+        parm {
+            name    "sepparm9"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "scroll"
+            label   "Scroll"
+            type    float
+            default { "0" }
+            disablewhen "{ set_length_from_input_song == 1 }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "sepparm8"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "nameoption"
+            label   "Name Options"
+            type    ordinal
+            invisible
+            default { "filename" }
+            menu {
+                "infile"    "Use Names In File"
+                "new"       "Use New Names"
+                "filename"  "Use Filename"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "name"
+            label   "Attribute Name"
+            type    string
+            default { "audio" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "sepparm10"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+    }
+
+    groupcollapsible {
+        name    "input_file_2"
+        label   "OUTPUT ATTRIBS"
+        invisibletab
+
+        parm {
+            name    "sepparm14"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "activate_promote"
+            label   "Activate Promote"
+            type    toggle
+            default { "off" }
+        }
+        parm {
+            name    "sepparm16"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "inname"
+            label   "Original Name"
+            type    string
+            default { "*" }
+            disablewhen "{ activate_promote == 0 } { useoutname == 0 inclass == point outclass == vertex } { useoutname == 0 inclass == vertex outclass == point }"
+            menutoggle {
+                [ "opmenu -l attribpromote1 inname" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "inclass"
+            label   "Original Class"
+            type    ordinal
+            default { "detail" }
+            disablewhen "{ activate_promote == 0 } { useoutname == 0 inclass == point outclass == vertex } { useoutname == 0 inclass == vertex outclass == point }"
+            menu {
+                "detail"    "Detail"
+                "primitive" "Primitive"
+                "point"     "Point"
+                "vertex"    "Vertex"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "outclass"
+            label   "New Class"
+            type    ordinal
+            default { "point" }
+            disablewhen "{ activate_promote == 0 } { useoutname == 0 inclass == point outclass == vertex } { useoutname == 0 inclass == vertex outclass == point }"
+            menu {
+                "detail"    "Detail"
+                "primitive" "Primitive"
+                "point"     "Point"
+                "vertex"    "Vertex"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "method"
+            label   "Promotion Method"
+            type    ordinal
+            default { "mean" }
+            disablewhen "{ activate_promote == 0 } { useoutname == 0 inclass == point outclass == vertex } { useoutname == 0 inclass == vertex outclass == point }"
+            menu {
+                "max"       "Maximum"
+                "min"       "Minimum"
+                "mean"      "Average"
+                "mode"      "Mode"
+                "median"    "Median"
+                "sum"       "Sum"
+                "sumsquare" "Sum of Squares"
+                "rms"       "Root Mean Square"
+                "first"     "First Match"
+                "last"      "Last Match"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "useoutname"
+            label   "Change New Name"
+            type    toggle
+            default { "off" }
+            disablewhen "{ activate_promote == 0 } { useoutname == 0 inclass == point outclass == vertex } { useoutname == 0 inclass == vertex outclass == point }"
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "outname"
+            label   "New Name"
+            type    string
+            default { "" }
+            disablewhen "{ useoutname == 0 } { activate_promote == 0 }"
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "deletein"
+            label   "Delete Original"
+            type    toggle
+            default { "on" }
+            disablewhen "{ activate_promote == 0 } { useoutname == 0 inclass == point outclass == vertex } { useoutname == 0 inclass == vertex outclass == point }"
+            parmtag { "autoscope" "0000000000000000" }
+        }
+    }
+
+    groupcollapsible {
+        name    "folder1"
+        label   "OUTPUT CHOPS"
+
+        parm {
+            name    "chanOutProcess"
+            label   "FINAL OUTPUT"
+            type    oppath
+            default { "`opfullpath(\"./audio/CHOP_OUT\")`" }
+            parmtag { "opfilter" "!!CHOP!!" }
+            parmtag { "oprelative" "." }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "chanOutRawTrim"
+            label   "RAW TRIM"
+            type    oppath
+            default { "`opfullpath(\"./audio/FILE_INPUT\")`" }
+            parmtag { "opfilter" "!!CHOP!!" }
+            parmtag { "oprelative" "." }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "chanOutRaw"
+            label   "RAW"
+            type    oppath
+            default { "`opfullpath(\"./audio/FILE\")`" }
+            parmtag { "opfilter" "!!CHOP!!" }
+            parmtag { "oprelative" "." }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupcollapsible {
+        name    "input_file_1"
+        label   "BANDS"
+
+        parm {
+            name    "sepparm11"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "global_rate_scale"
+            label   "Global Rate Scale"
+            type    float
+            default { "100" }
+            range   { 4 100 }
+        }
+        parm {
+            name    "sepparm12"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        multiparm {
+            name    "bands_tab"
+            label    "BANDS"
+            default 2
+            parmtag { "autoselect" "0000000000000000" }
+            parmtag { "multistartoffset" "0" }
+            parmtag { "script_callback" "hou.pwd().hdaModule().createBands(kwargs) " }
+            parmtag { "script_callback_language" "python" }
+
+            groupcollapsible {
+                name    "activators_tab__#_1_10"
+                label   "Activators"
+                grouptag { "export_disable" "1" }
+
+                parm {
+                    name    "_sepparm18_#"
+                    label   "Spacer"
+                    type    separator
+                    default { "" }
+                    parmtag { "sidefx::layout_height" "small" }
+                    parmtag { "sidefx::look" "blank" }
+                }
+                parm {
+                    name    "activate_audio_filter#"
+                    label   "AUDIO FILTER"
+                    type    toggle
+                    joinnext
+                    default { "on" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "__sepparm19_#"
+                    label   "Spacer"
+                    type    separator
+                    default { "" }
+                    parmtag { "sidefx::layout_height" "small" }
+                    parmtag { "sidefx::look" "blank" }
+                }
+                parm {
+                    name    "activate_envelope#"
+                    label   "ENVELOPE"
+                    type    toggle
+                    joinnext
+                    default { "on" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "___sepparm20_#"
+                    label   "Spacer"
+                    type    separator
+                    default { "" }
+                    parmtag { "sidefx::layout_height" "small" }
+                    parmtag { "sidefx::look" "blank" }
+                }
+                parm {
+                    name    "activate_smooth_filter#"
+                    label   "SMOOTH FILTER"
+                    type    toggle
+                    invisible
+                    joinnext
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "____sepparm21_#"
+                    label   "Spacer"
+                    type    separator
+                    invisible
+                    default { "" }
+                    parmtag { "sidefx::layout_height" "small" }
+                    parmtag { "sidefx::look" "blank" }
+                }
+                parm {
+                    name    "activate_trigger#"
+                    label   "TRIGGER"
+                    type    toggle
+                    joinnext
+                    default { "on" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "_____sepparm22_#"
+                    label   "Spacer"
+                    type    separator
+                    default { "" }
+                    parmtag { "sidefx::layout_height" "small" }
+                    parmtag { "sidefx::look" "blank" }
+                }
+                parm {
+                    name    "activate_counter#"
+                    label   "COUNTER"
+                    type    toggle
+                    joinnext
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "______sepparm23_#"
+                    label   "Spacer"
+                    type    separator
+                    default { "" }
+                    parmtag { "sidefx::layout_height" "small" }
+                    parmtag { "sidefx::look" "blank" }
+                }
+                parm {
+                    name    "activate_lag#"
+                    label   "LAG"
+                    type    toggle
+                    joinnext
+                    default { "on" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "_______sepparm24_#"
+                    label   "Spacer"
+                    type    separator
+                    default { "" }
+                    parmtag { "sidefx::layout_height" "small" }
+                    parmtag { "sidefx::look" "blank" }
+                }
+                parm {
+                    name    "activate_function#"
+                    label   "FUNCTION"
+                    type    toggle
+                    joinnext
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "________sepparm25_#"
+                    label   "Spacer"
+                    type    separator
+                    default { "" }
+                    parmtag { "sidefx::layout_height" "small" }
+                    parmtag { "sidefx::look" "blank" }
+                }
+                parm {
+                    name    "activate_ramp#"
+                    label   "RAMP"
+                    type    toggle
+                    invisible
+                    joinnext
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "_________sepparm26_#"
+                    label   "Spacer"
+                    type    separator
+                    invisible
+                    default { "" }
+                    parmtag { "sidefx::layout_height" "small" }
+                    parmtag { "sidefx::look" "blank" }
+                }
+                parm {
+                    name    "activate_output_range#"
+                    label   "OUTPUT RANGE"
+                    type    toggle
+                    joinnext
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "__________sepparm27_#"
+                    label   "Spacer"
+                    type    separator
+                    default { "" }
+                    parmtag { "sidefx::layout_height" "small" }
+                    parmtag { "sidefx::look" "blank" }
+                }
+                parm {
+                    name    "activate_rename#"
+                    label   "RENAME"
+                    type    toggle
+                    joinnext
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "__________sepparm27_#_2"
+                    label   "Spacer"
+                    type    separator
+                    default { "" }
+                    parmtag { "sidefx::layout_height" "small" }
+                    parmtag { "sidefx::look" "blank" }
+                }
+            }
+
+            groupcollapsible {
+                name    "activators_tab__#_1_1"
+                label   "Audio Filter"
+                hidewhentab "{ activate_audio_filter# == 0 }"
+                grouptag { "export_disable" "1" }
+
+                parm {
+                    name    "audio_filter#"
+                    label   "Filter"
+                    type    ordinal
+                    default { "0" }
+                    menu {
+                        "0" "Low Pass"
+                        "1" "High Pass"
+                        "2" "Band Pass"
+                        "3" "Band Stop"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "audio_cutofflow#"
+                    label   "Low Cutoff"
+                    type    float
+                    default { "200" }
+                    disablewhen "{ audio_filter# == 0 }"
+                    range   { 40! 400 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "audio_cutoffhigh#"
+                    label   "High Cutoff"
+                    type    float
+                    default { "80" }
+                    disablewhen "{ audio_filter# == 1 }"
+                    range   { 40! 400 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+            }
+
+            groupcollapsible {
+                name    "activators_tab__#_1_2"
+                label   "Resample"
+
+                parm {
+                    name    "resample_rate#"
+                    label   "Sample Rate"
+                    type    float
+                    default { "44100" }
+                    range   { 800! 44100 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "resample_interp#"
+                    label   "Interpolation"
+                    type    ordinal
+                    default { "cubic" }
+                    menu {
+                        "nointerp"  "No Interpolation"
+                        "linear"    "Linear"
+                        "cubic"     "Cubic"
+                        "edge"      "Pulse Preserve"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+            }
+
+            groupcollapsible {
+                name    "activators_tab__#_1_3"
+                label   "Envelope"
+                hidewhentab "{ activate_envelope# == 0 }"
+                grouptag { "export_disable" "1" }
+
+                parm {
+                    name    "envelope_method#"
+                    label   "Type"
+                    type    ordinal
+                    default { "exp" }
+                    menu {
+                        "exp"       "Exponential Decay"
+                        "window"    "Local Maximum Window"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "envelope_bounds#"
+                    label   "Envelope Bounds"
+                    type    ordinal
+                    default { "power" }
+                    menu {
+                        "mag"   "Magnitude"
+                        "power" "Signal Power"
+                        "min"   "Maximum Values"
+                        "max"   "Minimum Values"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "envelope_width#"
+                    label   "Envelope Width"
+                    type    float
+                    default { "0.0035" }
+                    range   { 0! 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "envelope_interp#"
+                    label   "Interpolate"
+                    type    ordinal
+                    default { "none" }
+                    menu {
+                        "none"      "None"
+                        "linear"    "Linear"
+                        "cubic"     "Cubic"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "envelope_norm#"
+                    label   "Normalize Power Envelope"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+            }
+
+            groupcollapsible {
+                name    "activators_tab__#_1_5"
+                label   "Trigger"
+                hidewhentab "{ activate_trigger# == 0 }"
+                grouptag { "export_disable" "1" }
+
+                groupcollapsible {
+                    name    "trigger_trigger_tab__#"
+                    label   "Trigger"
+                    grouptag { "export_disable" "1" }
+
+                    parm {
+                        name    "trigger_threshold#"
+                        label   "Release = Trigger Threshold"
+                        type    toggle
+                        default { "on" }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "export_disable" "1" }
+                        parmtag { "import_enable" "1" }
+                    }
+                    parm {
+                        name    "trigger_threshup#"
+                        label   "Trigger Threshold"
+                        type    float
+                        default { "0.6" }
+                        range   { 0 2 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "export_disable" "1" }
+                        parmtag { "import_enable" "1" }
+                    }
+                    parm {
+                        name    "trigger_threshdown#"
+                        label   "Release Threshold"
+                        type    float
+                        default { "0" }
+                        range   { 0 2 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "export_disable" "1" }
+                        parmtag { "import_enable" "1" }
+                    }
+                    parm {
+                        name    "trigger_retrigger#"
+                        label   "Re-trigger Delay"
+                        type    float
+                        default { "0.15" }
+                        range   { 0! 2 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "export_disable" "1" }
+                        parmtag { "import_enable" "1" }
+                    }
+                    parm {
+                        name    "trigger_mintrigger#"
+                        label   "Min Trigger Length"
+                        type    float
+                        default { "0" }
+                        range   { 0! 4 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "export_disable" "1" }
+                        parmtag { "import_enable" "1" }
+                    }
+                    parm {
+                        name    "trigger_triggeron#"
+                        label   "Trigger On"
+                        type    ordinal
+                        default { "increase" }
+                        menu {
+                            "increase"  "Increasing Values"
+                            "decrease"  "Decreasing Values"
+                        }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "export_disable" "1" }
+                        parmtag { "import_enable" "1" }
+                    }
+                }
+
+                groupcollapsible {
+                    name    "trigger_trigger_tab__#_1"
+                    label   "Attack"
+                    grouptag { "export_disable" "1" }
+
+                    parm {
+                        name    "trigger_delay#"
+                        label   "Delay Length"
+                        type    float
+                        default { "0" }
+                        range   { 0! 2 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "export_disable" "1" }
+                        parmtag { "import_enable" "1" }
+                    }
+                    parm {
+                        name    "trigger_attack#"
+                        label   "Attack Length"
+                        type    float
+                        default { "0" }
+                        range   { 0! 2 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "export_disable" "1" }
+                        parmtag { "import_enable" "1" }
+                    }
+                    parm {
+                        name    "trigger_ashape#"
+                        label   "Attack Shape"
+                        type    ordinal
+                        default { "halfcos" }
+                        menu {
+                            "linear"    "Linear"
+                            "easein"    "Ease In"
+                            "easeout"   "Ease Out"
+                            "halfcos"   "Ease in Ease out"
+                        }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "export_disable" "1" }
+                        parmtag { "import_enable" "1" }
+                    }
+                    parm {
+                        name    "trigger_peak#"
+                        label   "Peak Level"
+                        type    float
+                        default { "1" }
+                        range   { 0 2 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "export_disable" "1" }
+                        parmtag { "import_enable" "1" }
+                    }
+                    parm {
+                        name    "trigger_peaklen#"
+                        label   "Peak Length"
+                        type    float
+                        default { "0" }
+                        range   { 0! 2 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "export_disable" "1" }
+                        parmtag { "import_enable" "1" }
+                    }
+                }
+
+                groupcollapsible {
+                    name    "trigger_trigger_tab__#_2"
+                    label   "Sustain"
+                    grouptag { "export_disable" "1" }
+
+                    parm {
+                        name    "trigger_decay#"
+                        label   "Decay Length"
+                        type    float
+                        default { "0.15" }
+                        range   { 0! 2 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "export_disable" "1" }
+                        parmtag { "import_enable" "1" }
+                    }
+                    parm {
+                        name    "trigger_dshape#"
+                        label   "Decay Shape"
+                        type    ordinal
+                        default { "easeout" }
+                        menu {
+                            "linear"    "Linear"
+                            "easein"    "Ease In"
+                            "easeout"   "Ease Out"
+                            "halfcos"   "Ease in Ease out"
+                        }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "export_disable" "1" }
+                        parmtag { "import_enable" "1" }
+                    }
+                    parm {
+                        name    "trigger_sustain#"
+                        label   "Sustain Level"
+                        type    float
+                        default { "0" }
+                        range   { 0 2 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "export_disable" "1" }
+                        parmtag { "import_enable" "1" }
+                    }
+                    parm {
+                        name    "trigger_release#"
+                        label   "Release Length"
+                        type    float
+                        default { "0" }
+                        range   { 0! 2 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "export_disable" "1" }
+                        parmtag { "import_enable" "1" }
+                    }
+                    parm {
+                        name    "trigger_rshape#"
+                        label   "Release Shape"
+                        type    ordinal
+                        default { "halfcos" }
+                        menu {
+                            "linear"    "Linear"
+                            "easein"    "Ease In"
+                            "easeout"   "Ease Out"
+                            "halfcos"   "Ease in Ease out"
+                        }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "export_disable" "1" }
+                        parmtag { "import_enable" "1" }
+                    }
+                }
+
+            }
+
+            groupcollapsible {
+                name    "activators_tab__#_1_4"
+                label   "Smooth Filter"
+                hidewhentab "{ activate_smooth_filter# == 0 }"
+                grouptag { "export_disable" "1" }
+
+                parm {
+                    name    "smooth_type#"
+                    label   "Type"
+                    type    ordinal
+                    default { "gauss" }
+                    menu {
+                        "gauss"     "Gaussian"
+                        "halfgauss" "Left Half Gaussian"
+                        "box"       "Box"
+                        "halfbox"   "Left Half Box"
+                        "edge"      "Edge Detect"
+                        "sharpen"   "Sharpen"
+                        "despike"   "De-spike"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "smooth_effect#"
+                    label   "Effect"
+                    type    float
+                    default { "0.5" }
+                    range   { 0 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "smooth_width#"
+                    label   "Filter Width"
+                    type    float
+                    default { "0.1" }
+                    range   { 0.001! 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "smooth_spike#"
+                    label   "Spike Tolerance"
+                    type    float
+                    default { "0.2" }
+                    range   { 0! 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "smooth_passes#"
+                    label   "Number of Passes"
+                    type    integer
+                    default { "1" }
+                    range   { 1! 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+            }
+
+            groupcollapsible {
+                name    "activators_tab__#_1_6"
+                label   "Counter"
+                hidewhentab "{ activate_counter# == 0 }"
+
+                parm {
+                    name    "counter_constant_value#"
+                    label   "Add Value"
+                    type    float
+                    default { "0.1" }
+                    range   { 0.1 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                groupcollapsible {
+                    name    "stdswitcher3_#"
+                    label   "Trigger"
+
+                    parm {
+                        name    "counter_threshold#"
+                        label   "Release = Trigger Threshold"
+                        type    toggle
+                        default { "off" }
+                        parmtag { "autoscope" "0000000000000000" }
+                    }
+                    parm {
+                        name    "counter_threshup#"
+                        label   "Trigger Threshold"
+                        type    float
+                        default { "0" }
+                        range   { 0 10 }
+                        parmtag { "autoscope" "0000000000000000" }
+                    }
+                    parm {
+                        name    "counter_threshdown#"
+                        label   "Release Threshold"
+                        type    float
+                        default { "0" }
+                        range   { 0 10 }
+                        parmtag { "autoscope" "0000000000000000" }
+                    }
+                    parm {
+                        name    "counter_retrigger#"
+                        label   "Re-trigger Delay"
+                        type    float
+                        default { "0" }
+                        range   { 0! 20 }
+                        parmtag { "autoscope" "0000000000000000" }
+                    }
+                    parm {
+                        name    "counter_triggeron#"
+                        label   "Trigger On"
+                        type    ordinal
+                        default { "increase" }
+                        menu {
+                            "increase"  "Increasing Values"
+                            "decrease"  "Decreasing Values"
+                        }
+                        parmtag { "autoscope" "0000000000000000" }
+                    }
+                }
+
+                groupcollapsible {
+                    name    "stdswitcher3_#_1"
+                    label   "Count"
+
+                    parm {
+                        name    "counter_output#"
+                        label   "Limit"
+                        type    ordinal
+                        default { "off" }
+                        menu {
+                            "off"   "Off"
+                            "loop"  "Loop Min/Max"
+                            "min"   "Clamp Min/Max"
+                            "lc"    "Loop Min, Clamp Max"
+                            "cl"    "Clamp Min, Loop Max"
+                        }
+                        parmtag { "autoscope" "0000000000000000" }
+                    }
+                    parm {
+                        name    "counter_limitmin#"
+                        label   "Limit Minimum"
+                        type    float
+                        default { "0" }
+                        range   { 0 20 }
+                        parmtag { "autoscope" "0000000000000000" }
+                    }
+                    parm {
+                        name    "counter_limitmax#"
+                        label   "Limit Maximum"
+                        type    float
+                        default { "10" }
+                        range   { 0 20 }
+                        parmtag { "autoscope" "0000000000000000" }
+                    }
+                    parm {
+                        name    "counter_offon#"
+                        label   "Off To On "
+                        type    ordinal
+                        default { "inc" }
+                        menu {
+                            "none"      "None"
+                            "inc"       "Increase Count"
+                            "dec"       "Decrease Count"
+                            "inctime"   "Increase Count by Time"
+                            "dectime"   "Decrease Count by Time"
+                            "reset"     "Reset Count to Zero"
+                        }
+                        parmtag { "autoscope" "0000000000000000" }
+                    }
+                    parm {
+                        name    "counter_on#"
+                        label   "While On"
+                        type    ordinal
+                        default { "none" }
+                        menu {
+                            "none"      "None"
+                            "inc"       "Increase Count"
+                            "dec"       "Decrease Count"
+                            "inctime"   "Increase Count by Time"
+                            "dectime"   "Decrease Count by Time"
+                            "reset"     "Reset Count to Zero"
+                        }
+                        parmtag { "autoscope" "0000000000000000" }
+                    }
+                    parm {
+                        name    "counter_onoff#"
+                        label   "On To Off"
+                        type    ordinal
+                        default { "none" }
+                        menu {
+                            "none"      "None"
+                            "inc"       "Increase Count"
+                            "dec"       "Decrease Count"
+                            "inctime"   "Increase Count by Time"
+                            "dectime"   "Decrease Count by Time"
+                            "reset"     "Reset Count to Zero"
+                        }
+                        parmtag { "autoscope" "0000000000000000" }
+                    }
+                    parm {
+                        name    "counter_off#"
+                        label   "While Off"
+                        type    ordinal
+                        default { "none" }
+                        menu {
+                            "none"      "None"
+                            "inc"       "Increase Count"
+                            "dec"       "Decrease Count"
+                            "inctime"   "Increase Count by Time"
+                            "dectime"   "Decrease Count by Time"
+                            "reset"     "Reset Count to Zero"
+                        }
+                        parmtag { "autoscope" "0000000000000000" }
+                    }
+                    parm {
+                        name    "counter_reset#"
+                        label   "Reset Count to Zero"
+                        type    button
+                        default { "0" }
+                        parmtag { "autoscope" "0000000000000000" }
+                    }
+                }
+
+            }
+
+            groupcollapsible {
+                name    "activators_tab__#_1_7"
+                label   "Lag"
+                hidewhentab "{ activate_lag# == 0 }"
+                grouptag { "export_disable" "1" }
+
+                parm {
+                    name    "lag_scroll#"
+                    label   "Scroll Offset"
+                    type    float
+                    default { "ch(\"lag_lag01\") * - 0.5" }
+                    range   { -2 0.5 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "lag_lagmethod#"
+                    label   "Method"
+                    type    ordinal
+                    default { "value" }
+                    menu {
+                        "value" "Lag Value"
+                        "amp"   "Lag Amplitude"
+                        "mag"   "Lag Magnitude"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "lag_lag#"
+                    label   "Lag"
+                    type    float
+                    size    2
+                    default { "0.3" "0.3" }
+                    range   { 0! 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "lag_overshoot#"
+                    label   "Overshoot"
+                    type    float
+                    size    2
+                    default { "0" "0" }
+                    range   { 0! 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "lag_clamp#"
+                    label   "Clamp Slope"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "lag_slope#"
+                    label   "Max Slope"
+                    type    float
+                    size    2
+                    default { "0.5" "0.5" }
+                    range   { 0! 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "lag_aclamp#"
+                    label   "Clamp Acceleration"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "lag_accel#"
+                    label   "Max Acceleration"
+                    type    float
+                    size    2
+                    default { "0.003" "0.003" }
+                    range   { 0! 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+            }
+
+            groupcollapsible {
+                name    "activators_tab__#_1_8"
+                label   "Function"
+                hidewhentab "{ activate_function# == 0 }"
+                grouptag { "export_disable" "1" }
+
+                parm {
+                    name    "labelparm#"
+                    label   "pre_mult_range"
+                    type    label
+                    invisible
+                    default { "PREMULT // FIT INPUT RANGE" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "function_torange#"
+                    label   "To Range"
+                    type    float
+                    default { "0" }
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "function_gain#"
+                    label   "Multiply"
+                    type    float
+                    default { "-2" }
+                    range   { -10 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "function_func#"
+                    label   "Function"
+                    type    ordinal
+                    default { "sin" }
+                    menu {
+                        "sqrt"  "sqrt(x)         Square Root"
+                        "abs"   "abs(x)         Absolute Value"
+                        "sign"  "sign(x)         Sign"
+                        "cos"   "cos(x)         Cosine"
+                        "sin"   "sin(x)          Sine"
+                        "tan"   "tan(x)         Tangent"
+                        "acos"  "acos(x)       Arccosine"
+                        "asin"  "asin(x)        Arcsine"
+                        "atan"  "atan(x)        Arctan( Input1 )"
+                        "atan2" "atan2(x,y)   Arctan( Input1 / Input2 )"
+                        "cosh"  "cosh(x)       Hyperbolic Cosine"
+                        "sinh"  "sinh(x)        Hyperbolic Sine"
+                        "tanh"  "tanh(x)        Hyperbolic Tangent"
+                        "log"   "log10(x)       Log base 10"
+                        "logb"  "logN(x)         Log base N"
+                        "ln"    "ln(x)            Natural Log"
+                        "pow10" "pow(10,x)    10 ^ Input1"
+                        "exp"   "exp(x)          e ^ Input1"
+                        "powe"  "pow(x)         Base ^ Input1"
+                        "powb"  "pow(x)         Input1 ^ Exponent"
+                        "pow"   "pow(x,y)      Input1 ^ Input2"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "function_baseval#"
+                    label   "base value"
+                    type    float
+                    default { "2" }
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "function_expval#"
+                    label   "exponent value"
+                    type    float
+                    default { "4" }
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "function_angunit#"
+                    label   "angle units"
+                    type    ordinal
+                    default { "cycle" }
+                    menu {
+                        "deg"   "Degrees"
+                        "rad"   "Radians"
+                        "cycle" "Cycles"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "function_match#"
+                    label   "match by"
+                    type    ordinal
+                    default { "index" }
+                    menu {
+                        "index" "Channel Number"
+                        "name"  "Channel Name"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "function_matchfailure#"
+                    label   "match failure"
+                    type    ordinal
+                    default { "ignore" }
+                    menu {
+                        "error"     "Error"
+                        "warning"   "Warning"
+                        "ignore"    "Ignore"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+            }
+
+            groupcollapsible {
+                name    "activators_tab__#_1_9"
+                label   "Ramp"
+                invisibletab
+                hidewhentab "{ activate_ramp# == 0 }"
+                grouptag { "export_disable" "1" }
+
+                parm {
+                    name    "ramp_ramp_values#"
+                    label   "Ramp"
+                    type    ramp_flt
+                    default { "2" }
+                    range   { 1! 10 }
+                }
+            }
+
+            groupcollapsible {
+                name    "activators_tab__#_1_11"
+                label   "Output Range"
+                hidewhentab "{ activate_output_range# == 0 }"
+                grouptag { "export_disable" "1" }
+
+                parm {
+                    name    "output_range_gain#"
+                    label   "multiply"
+                    type    float
+                    default { "1" }
+                    range   { -4 4 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+                parm {
+                    name    "output_range_torange#"
+                    label   "to range"
+                    type    float
+                    size    2
+                    default { "0" "1" }
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+            }
+
+            groupcollapsible {
+                name    "activators_tab__#_1"
+                label   "Rename"
+                hidewhentab "{ activate_rename# == 0 }"
+                grouptag { "export_disable" "1" }
+
+                parm {
+                    name    "rename_renameto#"
+                    label   "To"
+                    type    string
+                    default { "*_low" }
+                    menutoggle {
+                        [ "opmenu -l audio/BANDS/SB_CHOP_PROCESS renameto" ]
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "export_disable" "1" }
+                    parmtag { "import_enable" "1" }
+                }
+            }
+
+            parm {
+                name    "sepparm2_#"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+            parm {
+                name    "_sepparm3_#"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+            parm {
+                name    "__sepparm4_#"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+        }
+
+    }
+
+}

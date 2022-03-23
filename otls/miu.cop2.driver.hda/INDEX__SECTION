@@ -1,0 +1,14 @@
+Operator:     driver
+Label:        Driver
+Path:         oplib:/Cop2/driver?Cop2/driver
+Icon:         COP2_subnet
+Table:        Cop2
+License:      
+Extra:        
+User:         
+Inputs:       0 to 0
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Fri Jan  7 00:09:17 2022
+

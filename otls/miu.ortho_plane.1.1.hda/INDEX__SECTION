@@ -1,0 +1,15 @@
+Operator:     miu::quick_ortho_plane::1.1
+Label:        Quick Ortho Plane
+Path:         oplib:/miu::Sop/quick_ortho_plane::1.1?miu::Sop/quick_ortho_plane::1.1
+Icon:         opdef:/miu::Sop/quick_ortho_plane::1.1?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       0 to 1
+Outputs:      2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Fri Jan 21 11:41:42 2022
+

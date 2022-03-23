@@ -1,0 +1,110 @@
+import paramiko
+import os
+import sys
+import subprocess
+import webbrowser
+import hou
+
+
+def getMat(kwargs):
+    usdpath = "/generate_usd/input_geo"
+    np = kwargs['node'].path()
+    npusd = np + usdpath
+    nodeusd = hou.node(npusd)
+    parms = nodeusd.parm("materials").multiParmInstances()
+    return print(parms)
+
+def render(kwargs):
+    usdpath = "/generate_usd/input_geo"
+    np = kwargs['node'].path()
+    npexec = np + "/RENDER"
+    npusd = np + usdpath
+    node = hou.node(npexec)
+    nodeusd = hou.node(npusd)
+    pexec = node.parm("execute")
+    pfill = nodeusd.parm("fillmaterials")
+    pfill.pressButton()
+    #getMat(kwargs)
+    pexec.pressButton()
+    return
+    
+    
+def openfilebrowser(kwargs):
+    n = kwargs['node'].path()
+    node = hou.node(n)
+    path = node.parm("filePath").eval()
+    path = str(path)
+    old_path = path
+    if path != "":
+        path = hou.expandString(path)
+        path = os.path.normpath(path)
+        if os.path.exists(path):
+            if sys.platform == "linux2":
+                new_env = os.environ
+                new_env["LD_LIBRARY_PATH"] = ""
+                subprocess.Popen(["xdg-open", path], env=new_env)
+            if sys.platform == "win32":
+                subprocess.Popen(["explorer", path])
+            if sys.platform == "darwin":
+                subprocess.Popen(["open", path])
+        else:
+            print('Folder "{}" does not exist or you do not have permission to access it'.format(old_path))
+    return 
+
+def openBrowser(webaddress, path):
+    webbrowser.open(webaddress+path)
+    return
+
+def getPath(kwargs):
+    node = kwargs['node']
+    fill = node.parm("fileName").evalAsString()
+    return fill
+    
+def openUploaded(kwargs):
+    node = kwargs['node']
+    fill = getPath(kwargs)
+    webAddress = node.parm("url").evalAsString()
+    openBrowser(webAddress, fill)
+    return 
+    
+def uploadToServer(kwargs):
+    exec = render(kwargs)
+    node = kwargs['node']
+    localPath = node.parm("filePath").eval()
+    localPath = str(localPath)
+    
+    name = node.parm("fileName").eval()
+    host = node.parm("hostname").eval()
+    port = int(node.parm("port").eval())
+    
+    transport = paramiko.Transport((host, port))
+    
+    username = node.parm("user").eval()
+    root = "/home/" + username 
+    fill = getPath(kwargs)
+    root += fill
+    password = node.parm("pass").eval()
+    
+    transport.connect(username = username, password = password)
+    
+    sftp = paramiko.SFTPClient.from_transport(transport)
+    localNameGL = localPath + "/" + name + ".glb"
+    localNameUSD = localPath + "/" + name + ".usdz"
+    
+    remote_directory = root
+    dir_path = str()
+    for dir_folder in remote_directory.split("/"):
+        if dir_folder == "":
+            continue
+        dir_path += r"/{0}".format(dir_folder)
+        try:
+            sftp.listdir(dir_path)
+        except IOError:
+            sftp.mkdir(dir_path)
+            
+    path = root
+    path += "model"
+    sftp.put(localNameGL, path + ".glb")
+    sftp.put(localNameUSD, path + ".usdz")
+    openUploaded(kwargs)
+    return print(node.parm("url").evalAsString()+fill)

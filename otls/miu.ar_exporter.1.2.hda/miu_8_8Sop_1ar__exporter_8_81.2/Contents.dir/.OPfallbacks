@@ -1,0 +1,14 @@
+Sop/attribwrangle C:/PROGRA~1/SIDEEF~1/HOUDIN~1.455/houdini/otls/OPlibSop.hda
+Sop/attribwrangle otls/OPlibSop.hda
+Sop/clean C:/PROGRA~1/SIDEEF~1/HOUDIN~1.455/houdini/otls/OPlibSop.hda
+Sop/clean otls/OPlibSop.hda
+Sop/groupexpression C:/PROGRA~1/SIDEEF~1/HOUDIN~1.455/houdini/otls/OPlibSop.hda
+Sop/groupexpression otls/OPlibSop.hda
+Driver/null C:/PROGRA~1/SIDEEF~1/HOUDIN~1.455/houdini/otls/OPlibDriver.hda
+Driver/null otls/OPlibDriver.hda
+Lop/sopcreate C:/PROGRA~1/SIDEEF~1/HOUDIN~1.455/houdini/otls/OPlibLop.hda
+Lop/sopcreate otls/OPlibLop.hda
+Sop/usdimport C:/PROGRA~1/SIDEEF~1/HOUDIN~1.455/houdini/otls/OPlibSop.hda
+Sop/usdimport otls/OPlibSop.hda
+Driver/usdzip C:/PROGRA~1/SIDEEF~1/HOUDIN~1.455/houdini/otls/OPlibDriver.hda
+Driver/usdzip otls/OPlibDriver.hda

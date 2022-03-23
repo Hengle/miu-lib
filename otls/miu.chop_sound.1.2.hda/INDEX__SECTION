@@ -1,0 +1,15 @@
+Operator:     miu::chop_sound::1.2
+Label:        CHOP Sound
+Path:         oplib:/miu::Sop/chop_sound::1.2?miu::Sop/chop_sound::1.2
+Icon:         opdef:/miu::Sop/chop_sound::1.2?chop-sound-black.svg
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       0 to 1
+Outputs:      2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Sun Jan 23 16:16:52 2022
+

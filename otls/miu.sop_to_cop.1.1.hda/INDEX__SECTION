@@ -1,0 +1,15 @@
+Operator:     miu::sop_to_cop::1.1
+Label:        SOP to COP
+Path:         oplib:/miu::Sop/sop_to_cop::1.1?miu::Sop/sop_to_cop::1.1
+Icon:         opdef:/miu::Sop/sop_to_cop::1.1?IconSVG
+Table:        Sop
+License:      
+Extra:        guide=GUIDE 
+User:         
+Inputs:       0 to 30
+Outputs:      2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Wed Jan 12 16:54:09 2022
+

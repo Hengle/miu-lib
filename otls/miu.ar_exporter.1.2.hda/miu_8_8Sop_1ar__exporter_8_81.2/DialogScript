@@ -1,0 +1,217 @@
+# Dialog script for miu::ar_exporter::1.2 automatically generated
+
+{
+    name	miu::ar_exporter::1.2
+    script	sb.sop_utils.ar_exporter
+    label	"AR Exporter"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"INPUT GEO"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"OUTPUT GEO"
+
+    parm {
+        name    "sepparm"
+        label   "Spacer"
+        type    separator
+        default { "" }
+        parmtag { "sidefx::layout_height" "small" }
+        parmtag { "sidefx::look" "blank" }
+    }
+    parm {
+        name    "execute"
+        label   "RENDER"
+        type    button
+        joinnext
+        default { "0" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "export_disable" "1" }
+        parmtag { "script_callback" "hou.pwd().hdaModule().render(kwargs)" }
+        parmtag { "script_callback_language" "python" }
+        parmtag { "takecontrol" "always" }
+    }
+    parm {
+        name    "openfb"
+        label   "OPEN FOLDER"
+        type    button
+        default { "0" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "export_disable" "1" }
+        parmtag { "script_callback" "hou.pwd().hdaModule().openfilebrowser(kwargs)" }
+        parmtag { "script_callback_language" "python" }
+        parmtag { "takecontrol" "always" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Spacer"
+        type    separator
+        default { "" }
+        parmtag { "sidefx::layout_height" "small" }
+        parmtag { "sidefx::look" "blank" }
+    }
+    parm {
+        name    "connectServer"
+        label   "UPLOAD TO SERVER"
+        type    button
+        joinnext
+        default { "0" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "export_disable" "1" }
+        parmtag { "script_callback" "hou.pwd().hdaModule().uploadToServer(kwargs)" }
+        parmtag { "script_callback_language" "python" }
+        parmtag { "takecontrol" "always" }
+    }
+    parm {
+        name    "openSelected"
+        label   "OPEN SELECTED MODEL IN BROWSER"
+        type    button
+        default { "0" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "export_disable" "1" }
+        parmtag { "script_callback" "hou.pwd().hdaModule().openUploaded(kwargs)" }
+        parmtag { "script_callback_language" "python" }
+        parmtag { "takecontrol" "always" }
+    }
+    parm {
+        name    "sepparm3"
+        label   "Spacer"
+        type    separator
+        default { "" }
+        parmtag { "sidefx::layout_height" "small" }
+        parmtag { "sidefx::look" "blank" }
+    }
+    groupsimple {
+        name    "folder2"
+        label   "MAIN PARAMETERS"
+
+        parm {
+            name    "finalcount"
+            label   "Polygon Limit"
+            type    integer
+            default { "50000" }
+            range   { 5000! 100000 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm4"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "filePath"
+            label   "Local Folder"
+            type    directory
+            default { "$HIP/geo/ar" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "name_infos"
+            label   "Name"
+            type    string
+            default { "modelviewer" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "ver"
+            label   "Version"
+            type    integer
+            default { "1" }
+            range   { 1! 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm5"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "filePathFull"
+            label   "Local File Path"
+            type    directory
+            default { "`chs(\"filePath\") + \"/\" + chs(\"name_infos\")`.v`padzero(2,chs(\"ver\"))`" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "out_geo"
+            label   "OUTPUT GEO"
+            type    ordinal
+            invisible
+            default { "3" }
+            menu {
+                "0" "GLB"
+                "1" "USDZ"
+                "3" "PASSTHROUGH"
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupcollapsible {
+        name    "folder2_1"
+        label   "SSH"
+
+        parm {
+            name    "url"
+            label   "URL"
+            type    string
+            default { "https://www.acme.inc" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "fileName"
+            label   "Server Path"
+            type    string
+            default { "/`chs(\"name_infos\")`/v`padzero(2,chs(\"ver\"))`" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "hostname"
+            label   "Host Name"
+            type    string
+            joinnext
+            default { "ssh.your.end.point.net" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "rootFolder"
+            label   "Root Folder"
+            type    string
+            default { "/home/`chs(\"user\")`" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "port"
+            label   "Port"
+            type    string
+            default { "22" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "user"
+            label   "User"
+            type    string
+            default { "yourUsername" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "pass"
+            label   "Password"
+            type    string
+            default { "yourPassword" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

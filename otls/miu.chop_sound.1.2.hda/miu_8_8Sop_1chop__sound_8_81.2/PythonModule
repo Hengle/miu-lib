@@ -1,0 +1,122 @@
+def openMotionTab(kwargs):
+    me = kwargs['node']
+    '''Open Motion FX view'''
+    motion_fx_view = hou.paneTabType.ChannelViewer
+    pane_tab = hou.ui.curDesktop().createFloatingPaneTab(motion_fx_view, [0, 0], [1280, 720])
+    display = hou.node(me.path()+"/audio/BANDS/CHOP_OUT")
+    hou.ChopNode.setDisplayFlag(display, 1)
+    pane_tab.setCurrentNode(display)
+    me.setCurrent(1)
+    return pane_tab
+
+
+def previewOriginal(kwargs):
+    me = kwargs['node']
+    hou.audio.setChopPath(me.path()+"/audio/TRIM")
+    hou.audio.useTimeLineMode()
+    hou.audio.useChops()
+
+def createBands(kwargs):
+    # count how many bands we have, then verify we have the    # same number of Pass Filters in the CHOPnet's subnet.
+    me = hou.node(".") # NODE PATH
+    input = me.node('./audio/BANDS/IN')
+    output = me.node('./audio/BANDS/MERGE_BANDS')
+    bands = [f for f in output.inputs() if f.name() != "IN" ]
+    num_bands_needed = me.parm('bands_tab').eval()
+    
+    if len(bands) > num_bands_needed:            
+        # prune bands
+        for x in range(num_bands_needed, len(bands)):
+            if bands[x].name() != "IN":
+                # disconnect and destroy
+                for i in output.inputConnections():
+                    index = i.inputIndex()
+                    node = i.inputNode()
+                    if node == bands[x]:
+                        output.setInput(index, None, 0)
+                
+                bands[x].destroy()
+    
+    elif len(bands) < num_bands_needed:
+        # make and connect new band object
+        for x in range(len(bands), num_bands_needed):
+            
+            new_band = input.parent().createNode("chop_process::1.0")
+            new_band.setNextInput(input)
+            output.setNextInput(new_band)
+            
+            # create channel references
+            me = hou.node(".") # NODE PATH
+            rootGroup = me.parmTemplateGroup() # ACCESS TO PARM TEMPLATE GROUP AT ROOT    
+            bandTab = hou.ParmTemplateGroup.find(rootGroup, "bands_tab") # FIND INDEX FOR THE TARGET FOLDER            
+            bandTabEntries = hou.FolderParmTemplate.parmTemplates(bandTab) # RETURN THE LIST OF PARM TEMPLATE OF THE TARGET FOLDER
+            for folder in bandTabEntries :                
+                try:
+                    bandParmList = hou.FolderParmTemplate.parmTemplates(folder) # PARM LIST OF EACH FOLDER IN BANDS FOLDER
+                except TypeError:
+                    pass
+                for parm in bandParmList : # FOR EACH PARM IN THE LIST
+                    parmType = hou.ParmTemplate.type(parm) # RETURN THE TYPE OF THE PARM
+                    if parmType == hou.parmTemplateType.Folder or parmType == hou.parmTemplateType.FolderSet : # IF THE TYPE IS FOLDER OR FOLDER SET           
+                        inFolderList = hou.FolderParmTemplate.parmTemplates(parm) # RETURN THE LIST OF PARMS INSIDE THIS FOLDER PARM
+                        for inFolderparm in inFolderList : # FOR EACH PARM IN THIS FOLDER LIST
+                            inFolderParmName = hou.ParmTemplate.name(inFolderparm) # SAVE THE NAME OF THE PARM
+                            inFolderParmNumComponents = hou.ParmTemplate.numComponents(inFolderparm) # RETURN NUMBER OF COMPONENTS OF THE PARM
+                            if inFolderParmNumComponents > 1 :
+                                isInFolderParmTuple = 1
+                                inFolderParmTupleLabel = hou.ParmTemplate.label(inFolderparm) # SAVE THE LABEL
+                                inFolderParmTupleName = inFolderParmName[:-1] # REMOVE THE LAST CHARACTER (#) OF THE PARM NAME
+                                inFolderParmTupleOriginName = inFolderParmTupleName # SAVE THE ORIGINAL NAME OF THE PARM
+                                for inFolderComponent in range(inFolderParmNumComponents):
+                                    inFolderi = inFolderComponent
+                                    if inFolderi != 0:
+                                        inFolderParmTupleName = inFolderParmTupleName[:-inFolderi] + str(inFolderi)# ADD THE ID OF THE ACTIVE BAND IN THE PARM NAME
+                                    else:
+                                        inFolderParmTupleName = inFolderParmTupleName + str(inFolderi)# ADD THE ID OF THE ACTIVE BAND IN THE PARM NAME
+                                        inFolderParmTupleName = inFolderParmTupleName[:-1] + str(x)
+                                        inFolderNewParmTuple = me.inFolderParmTuple(inFolderParmTupleName) # CREATE THE UI ELEMENT WITH THE CORRECT NAME IN THE ASSET
+                                        inFolderTupleSet = new_band.inFolderParmTuple(inFolderParmTupleOriginName) # ASSIGN THE PARM TO THE TARGET NODE IN THIS BAND
+                                    
+                                        if inFolderNewParmTuple and inFolderTupleSet != None: # IF THE SOURCE AND TARGET PARM OBJECT EXIST
+                                            inFolderTupleSet = inFolderTupleSet.set(inFolderNewParmTuple) # ASSIGN THE PARM IN THE FOLDER OF THE TARGET NODE IN THIS BAND 
+                            
+                            inFolderParmLabel = hou.ParmTemplate.label(inFolderparm) # SAVE THE LABEL
+                            inFolderParmName = inFolderParmName[:-1] # REMOVE THE LAST CHARACTER (#) OF THE PARM NAME
+                            inFolderParmOriginName = inFolderParmName # SAVE THE ORIGINAL NAME OF THE PARM
+                            inFolderParmName = inFolderParmName + str(x) # ADD THE ID OF THE ACTIVE BAND IN THE PARM NAME
+                            inFolderNewParm = me.parm(inFolderParmName) # CREATE THE UI ELEMENT WITH THE CORRECT NAME IN THE ASSET
+                            inFolderSet = new_band.parm(inFolderParmOriginName) # ASSIGN THE PARM TO THE TARGET NODE IN THIS BAND
+                            if inFolderNewParm and inFolderSet != None :  # IF THE SOURCE AND TARGET PARM OBJECT EXIST
+                                inFolderSet = inFolderSet.set(inFolderNewParm) # ASSIGN THE PARM IN THE FOLDER OF THE TARGET NODE IN THIS BAND          
+                    
+                    parmName = hou.ParmTemplate.name(parm) # SAVE THE NAME OF THE PARM
+                    ParmNumComponents = hou.ParmTemplate.numComponents(parm) # RETURN NUMBER OF COMPONENTS OF THE PARM
+                    if ParmNumComponents > 1 :
+                        isParmTuple = 1
+                        parmTupleLabel = hou.ParmTemplate.label(parm) # SAVE THE LABEL
+                        parmTupleName = parmName[:-1] # REMOVE THE LAST CHARACTER (#) OF THE PARM NAME
+                        parmTupleOriginName = parmTupleName # SAVE THE ORIGINAL NAME OF THE PARM
+                        for component in range(ParmNumComponents):
+                            i = component
+                            if i != 0:
+                                parmTupleName = parmTupleName[:-i] + str(i) # ADD THE ID OF THE ACTIVE BAND IN THE PARM NAME
+                            else:
+                                parmTupleName = parmTupleName + str(i)# ADD THE ID OF THE ACTIVE BAND IN THE PARM NAME
+                                parmTupleName = parmTupleName[:-1] + str(x)
+                                newParmTuple = me.parmTuple(parmTupleName) # CREATE THE UI ELEMENT WITH THE CORRECT NAME IN THE ASSET
+                                tupleSet = new_band.parmTuple(parmTupleOriginName) # ASSIGN THE PARM TO THE TARGET NODE IN THIS BAND
+                            
+                                if newParmTuple and tupleSet != None: # IF THE SOURCE AND TARGET PARM OBJECT EXIST
+                                    tupleSet = tupleSet.set(newParmTuple) # ASSIGN THE PARM IN THE FOLDER OF THE TARGET NODE IN THIS BAND 
+                    
+                    parmLabel = hou.ParmTemplate.label(parm) # SAVE THE LABEL
+                    parmName = parmName[:-1] # REMOVE THE LAST CHARACTER (#) OF THE PARM NAME
+                    parmOriginName = parmName # SAVE THE ORIGINAL NAME OF THE PARM
+                    parmName = parmName + str(x) # ADD THE ID OF THE ACTIVE BAND IN THE PARM NAME
+                    
+                    
+                    newParm = me.parm(parmName) # CREATE THE UI ELEMENT WITH THE CORRECT NAME IN THE ASSET
+                    set = new_band.parm(parmOriginName) # ASSIGN THE PARM TO THE TARGET NODE IN THIS BAND
+                    
+                    if newParm and set != None: # IF THE SOURCE AND TARGET PARM OBJECT EXIST
+                        set = set.set(newParm) # ASSIGN THE PARM IN THE FOLDER OF THE TARGET NODE IN THIS BAND

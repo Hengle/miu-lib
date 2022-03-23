@@ -1,0 +1,116 @@
+def updateComment(kwargs):
+    node = kwargs['node']
+    if(node.input(0)):
+        autoNameNode = node.node("OUT_FINAL")
+        geo = autoNameNode.geometry()
+        srcName = node.parm("inname").eval()
+        srcNorm = node.parm("normalize").eval()
+        normStates = ['OFF', 'ON']
+        normState = normStates[srcNorm]
+        tarName = geo.stringAttribValue('___attribNameOut')
+        comment = str("IN : " + srcName + "\nNORM : "+ normState + "\nOUT : "+ tarName)
+        node.setComment(comment)
+
+def autoFit(kwargs):
+    rootnode = kwargs['node']
+    if(rootnode.input(0)):
+        node = rootnode.node("./normalize_input_attrib/CAPTURE_BOUNDS")
+        geo = node.geometry()
+        index = geo.attribValue("___attribSizeIn")
+        comp = geo.attribValue("___selectedComponent")
+        min = geo.attribValue("___min")
+        max = geo.attribValue("___max")
+        pmin = rootnode.parm('inmin')
+        pmax = rootnode.parm('inmax')
+        
+        if(index>1):
+            pmin.set(min[comp])
+            pmax.set(max[comp])
+        else:
+            pmin.set(min)
+            pmax.set(max)
+
+def invert(kwargs):
+    rootnode = kwargs['node']
+    pmin = rootnode.parm('inmin')
+    pmax = rootnode.parm('inmax')
+    tempMax = pmax.eval()
+    tempMin = pmin.eval()
+    
+    pmin.set(tempMax)
+    pmax.set(tempMin)
+    
+
+def checkNormalize(kwargs):
+    rootnode = kwargs['node']
+    updateComment(kwargs)
+    pmin = rootnode.parm('inmin')
+    pmax = rootnode.parm('inmax')
+    pnormalize = rootnode.parm('normalize')
+    pLimit = rootnode.parm('computeLimit')
+    if(pnormalize.eval() == 1):
+        pmin.set(0)
+        pmax.set(1)
+    else:
+        pass
+
+def toggleViz(kwargs):
+    from soputils import actionToggleVisualizer
+    node = kwargs['node']
+    autoNameNode = node.node("OUT_FINAL")
+    geo = autoNameNode.geometry()
+    
+    name = geo.stringAttribValue('___attribNameOut')
+    
+    visName = name
+    
+    category = hou.viewportVisualizerCategory.Node
+    visTup = hou.viewportVisualizers.visualizers(category, node)
+    toggle = 1
+    
+    
+    ## RAMP ##
+    basis = hou.rampBasis.CatmullRom
+    ramp = hou.Ramp((basis, basis, basis, basis, basis), (0, 0.25, 0.5, 0.75, 1), 
+    ((0.0, 0.0, 0.0), (0.092, 0, 0.154), (0.492, 0.003, 0.091), (0.949, 0.264, 0), (0.974, 0.996, 0.3734)))
+    
+    if not name:
+        print("Please, enter a name")
+    elif(len(visTup) != 0):
+        for vis in visTup:
+            oldName = vis.name()
+            if(oldName != visName):
+                # vis.setName(visName)
+                vis.setLabel(name.capitalize())
+                vis.setParm('attrib', name)
+                if(vis.isActive()):
+                    vis.setIsActive(0)
+                else:
+                    vis.setIsActive(1)
+    else:
+        viz = hou.viewportVisualizers.createVisualizer(hou.viewportVisualizers.type('vis_color'), category,node)
+        viz.setName("viz")
+        
+        viz.setLabel(name.capitalize())
+        viz.setParm('attrib', name)
+        viz.setParm('colortype', 1)
+        viz.setParm('rangespec', 1)
+        viz.setParm('colorramp', ramp)
+        if(viz.isActive()):
+            viz.setIsActive(0)
+        else:
+            viz.setIsActive(1)
+
+def resetViz(kwargs):
+    rootnode = kwargs['node']
+    p = rootnode.parm('viz')
+    viz = hou.viewportVisualizers.visualizers(hou.viewportVisualizerCategory.Node, rootnode)
+    viz = viz[0]
+    autoNameNode = rootnode.node("OUT_FINAL")
+    geo = autoNameNode.geometry()
+    name = geo.stringAttribValue('___attribNameOut')
+    if(viz):
+        # viz.setName(name)
+        viz.setLabel(name.capitalize())
+        viz.setParm('attrib', name)
+        updateComment(kwargs)

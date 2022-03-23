@@ -1,0 +1,14 @@
+Operator:     miu::quick_composite::1.2
+Label:        Quick Composite
+Path:         oplib:/miu::Sop/quick_composite::1.2?miu::Sop/quick_composite::1.2
+Icon:         opdef:/miu::Sop/quick_composite::1.2?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Tue Jan 11 12:31:48 2022
+

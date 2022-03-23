@@ -1,0 +1,275 @@
+# Dialog script for miu::profile_shape::1.0 automatically generated
+
+{
+    name	miu::profile_shape::1.0
+    script	miu::profile_shape::1.0
+    label	"Profile Shape"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	GEO
+
+    groupsimple {
+        name    "folder2"
+        label   "GLOBAL"
+
+        parm {
+            name    "offset"
+            label   "Output as"
+            type    ordinal
+            default { "2" }
+            menu {
+                "0" "Polyline"
+                "1" "Close"
+                "2" "Close Mirror"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "curveDir"
+            label   "Curve Direction"
+            type    ordinal
+            joinnext
+            default { "0" }
+            menu {
+                "0" "X"
+                "1" "Y"
+                "2" "Z"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "input"
+            label   "Reverse Point Order"
+            type    toggle
+            default { "off" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "pushAxis"
+            label   "Push Direction"
+            type    ordinal
+            joinnext
+            default { "1" }
+            menu {
+                "0" "X"
+                "1" "Y"
+                "2" "Z"
+            }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "invertPush"
+            label   "Invert"
+            type    toggle
+            default { "off" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "seedGlobal"
+            label   "Global Seed"
+            type    integer
+            default { "0" }
+            range   { -20 20 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "cutCount"
+            label   "Cut Count"
+            type    integer
+            default { "5" }
+            range   { 2! 8 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "pushMax"
+            label   "Max Push"
+            type    float
+            default { "0.2" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupsimple {
+        name    "folder6"
+        label   "BEVEL"
+
+        parm {
+            name    "bvDistance"
+            label   "Distance"
+            type    float
+            default { "1" }
+            range   { 0! 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "bvDivs"
+            label   "Divisions"
+            type    integer
+            default { "12" }
+            range   { 1! 20 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupcollapsible {
+        name    "folder0"
+        label   "JITTER"
+
+        parm {
+            name    "seedSection"
+            label   "Cut Seed"
+            type    integer
+            default { "0" }
+            range   { -20 20 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "seedPush"
+            label   "Push Seed"
+            type    integer
+            default { "0" }
+            range   { -20 20 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "seedBevel"
+            label   "Bevel Seed"
+            type    integer
+            default { "0" }
+            range   { -20 20 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "threshBevel"
+            label   "Bevel Threshold"
+            type    float
+            default { "0.25" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupcollapsible {
+            name    "folder1"
+            label   "CUT SCALE"
+            parmtag { "script_callback" "C" }
+
+            parm {
+                name    "rampCut"
+                label   "Cut Ramp"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 1 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+        groupcollapsible {
+            name    "folder3"
+            label   "PUSH SCALE"
+
+            parm {
+                name    "rampPush"
+                label   "Push Ramp"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+    }
+
+    groupcollapsible {
+        name    "folder4"
+        label   "OFFSET"
+        hidewhen "{ offset < 1 }"
+
+        parm {
+            name    "offsetScale"
+            label   "Offset Scale"
+            type    float
+            joinnext
+            default { "0.05" }
+            disablewhen "{ offset < 1 }"
+            range   { 0.05 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "close"
+            label   "Close"
+            type    toggle
+            default { "on" }
+            disablewhen "{ offset < 1 }"
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupcollapsible {
+        name    "folder5"
+        label   "FINISHING"
+
+        parm {
+            name    "sharpCorners"
+            label   "Sharp Corners"
+            type    toggle
+            joinnext
+            default { "on" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "bevelCorners"
+            label   "Bevel Distance"
+            type    log
+            nolabel
+            joinnext
+            default { "0.01" }
+            range   { 0! 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "divisions"
+            label   "Divisions"
+            type    integer
+            default { "2" }
+            range   { 1! 20 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

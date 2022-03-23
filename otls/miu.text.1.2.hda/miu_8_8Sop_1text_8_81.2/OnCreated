@@ -1,0 +1,7 @@
+me = kwargs['node']
+# name = me.name()
+me.setName("Text", True)
+color = hou.Color()
+color.setRGB((0.38,0.58,0.558))
+
+me.setColor(color)

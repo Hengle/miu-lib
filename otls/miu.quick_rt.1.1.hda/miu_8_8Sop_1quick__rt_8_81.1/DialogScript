@@ -1,0 +1,478 @@
+# Dialog script for miu::quick_rt::1.1 automatically generated
+
+{
+    name	miu::quick_rt::1.1
+    script	sb::quick_rt::1.0
+    label	"Quick RT"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"CAMERA PLANE"
+    inputlabel	2	"STATIC PLANE"
+    inputlabel	3	GEO
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"POINT CLOUD GRID"
+
+    groupsimple {
+        name    "folder0"
+        label   "RAY"
+
+        parm {
+            name    "method"
+            label   "Method"
+            type    ordinal
+            default { "project" }
+            menu {
+                "minimum"   "Minimum Distance"
+                "project"   "Project Rays"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "rayDir"
+            label   "Direction"
+            type    ordinal
+            default { "attribute" }
+            menu {
+                "vector"    "Vector"
+                "normal"    "Normal"
+                "attribute" "Attribute"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "dir"
+            label   "Ray Direction"
+            type    vector
+            size    3
+            default { "0" "0" "1" }
+            hidewhen "{ rayDir != vector }"
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "dirattrib"
+            label   "Direction Attribute"
+            type    string
+            default { "N" }
+            hidewhen "{ rayDir != attribute }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm5"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "sepparm6"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "planeToOrigin"
+            label   "Plane to origin"
+            type    toggle
+            joinnext
+            default { "on" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "rayTr"
+            label   "Transform Points"
+            type    toggle
+            joinnext
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "reverseRays"
+            label   "Reverse Rays"
+            type    toggle
+            joinnext
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "lookfar"
+            label   "Intersect Farthest Surface"
+            type    toggle
+            default { "off" }
+            disablewhen "{ method != project }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm7"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "promote"
+            label   "Promote to Points"
+            type    toggle
+            joinnext
+            default { "1" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "rayNormal"
+            label   "Hit Normal"
+            type    toggle
+            joinnext
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "rayDistance"
+            label   "Hit Distance"
+            type    toggle
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm8"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "restP"
+            label   "Compute rest P"
+            type    toggle
+            joinnext
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "restuv"
+            label   "Compute rest uv"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm9"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "setAlpha"
+            label   "Set Alpha"
+            type    toggle
+            joinnext
+            default { "on" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "alpha"
+            label   "Alpha"
+            type    float
+            nolabel
+            default { "1" }
+            hidewhen "{ setAlpha == 0 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm3"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        groupcollapsible {
+            name    "folder3"
+            label   "ATTRIBUTES"
+
+            parm {
+                name    "rayPtAttribs"
+                label   "Point Attributes"
+                type    string
+                default { "*" }
+                menutoggle {
+                    [ "opmenu -l -a ray1 ptattribnames" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "sop_input" "1" }
+            }
+            parm {
+                name    "rayVtxAttribs"
+                label   "Vertex Attributes"
+                type    string
+                default { "" }
+                menutoggle {
+                    [ "opmenu -l -a ray1 vertexattribnames" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "sop_input" "1" }
+            }
+            parm {
+                name    "rayPrimAttribs"
+                label   "Primitive Attributes"
+                type    string
+                default { "" }
+                menutoggle {
+                    [ "opmenu -l -a ray1 primitiveattribnames" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "sop_input" "1" }
+            }
+            parm {
+                name    "rayDetailAttribs"
+                label   "Detail Attributes"
+                type    string
+                default { "*" }
+                menutoggle {
+                    [ "opmenu -l -a ray1 detailattribnames" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "sop_input" "1" }
+            }
+            parm {
+                name    "sepparm4"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+            groupcollapsible {
+                name    "folder2"
+                label   "OUTPUT"
+
+                parm {
+                    name    "rayHitGroup"
+                    label   "Create Point Group"
+                    type    toggle
+                    nolabel
+                    joinnext
+                    default { "on" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "ray1_hitgrp"
+                    label   "Hit Group"
+                    type    string
+                    default { "rayHitGroup" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "rayUsePrimNum"
+                    label   "Prim Num Attribute"
+                    type    toggle
+                    nolabel
+                    joinnext
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "rayPrimNumAttrib"
+                    label   "Prim Num Attribute"
+                    type    string
+                    default { "__hitprim" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "rayUsePrimUv"
+                    label   "Prim UVW Attribute"
+                    type    toggle
+                    nolabel
+                    joinnext
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "rayPrimUvAttrib"
+                    label   "UV Attribute"
+                    type    string
+                    default { "__hitprimuv" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+            }
+
+        }
+
+    }
+
+    groupcollapsible {
+        name    "folder1"
+        label   "BLUR"
+
+        parm {
+            name    "blur"
+            label   "Blur"
+            type    toggle
+            default { "off" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "blurMode"
+            label   "Mode"
+            type    ordinal
+            default { "laplacian" }
+            disablewhen "{ blur == 0 }"
+            menu {
+                "laplacian"     "Laplacian"
+                "volpreserving" "Volume Preserving"
+                "custom"        "Custom"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "blurAttribs"
+            label   "Attributes"
+            type    string
+            default { "mask" }
+            disablewhen "{ blur == 0 }"
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "blurWeightAttrib"
+            label   "Weight Attribute"
+            type    string
+            default { "" }
+            disablewhen "{ blur == 0 }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "blurIter"
+            label   "Iterations"
+            type    intlog
+            default { "23" }
+            disablewhen "{ blur == 0 }"
+            range   { 0 1000 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "blurStepSize"
+            label   "Step Size"
+            type    float
+            default { "1" }
+            disablewhen "{ blur == 0 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "blurFreq"
+            label   "Cutoff"
+            type    float
+            default { "0.4" }
+            disablewhen "{ blur == 0 }"
+            hidewhen "{ blurMode != volpreserving }"
+            range   { 0 2 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "blurOddStepSize"
+            label   "Odd Step Size"
+            type    float
+            default { "0.5" }
+            disablewhen "{ blur == 0 }"
+            hidewhen "{ blurMode != custom }"
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "blurEvenStepSize"
+            label   "Even Step Size"
+            type    float
+            default { "0.5" }
+            disablewhen "{ blur == 0 }"
+            hidewhen "{ blurMode != custom }"
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "blurPinBorders"
+            label   "Pin Border Points"
+            type    toggle
+            default { "on" }
+            disablewhen "{ blur == 0 }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "blurInfluenceType"
+            label   "Influence Type"
+            type    ordinal
+            default { "connectivity" }
+            disablewhen "{ blur == 0 }"
+            menu {
+                "connectivity"  "Connectivity"
+                "proximity"     "Proximity"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "blurMaxNeigh"
+            label   "Max Neighbors"
+            type    integer
+            default { "5" }
+            disablewhen "{ blur == 0 }"
+            hidewhen "{ blurInfluenceType != proximity }"
+            range   { 0 50 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "blurProxRad"
+            label   "Proximity Radius"
+            type    float
+            default { "0.1" }
+            disablewhen "{ blur == 0 }"
+            hidewhen "{ blurInfluenceType != proximity }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

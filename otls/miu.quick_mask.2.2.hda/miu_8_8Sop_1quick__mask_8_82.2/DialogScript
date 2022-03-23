@@ -1,0 +1,596 @@
+# Dialog script for miu::quick_mask::2.2 automatically generated
+
+{
+    name	miu::quick_mask::2.2
+    script	sb.sop_utils.attribute_shape
+    label	"Quick Mask"
+
+    help {
+	""
+    }
+
+    inputlabel	1	Geo
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	Geo
+
+    parm {
+        name    "labelparm9"
+        label   "Heading"
+        type    label
+        invisible
+        default { "sb Quick Mask" }
+        parmtag { "sidefx::look" "heading" }
+    }
+    parm {
+        name    "attrClass"
+        label   "Attribute Class"
+        type    integer
+        invisible
+        default { "2" }
+        menu {
+            "0" "Detail"
+            "1" "Primitive"
+            "2" "Point"
+            "3" "Vertex"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    groupsimple {
+        name    "folder1"
+        label   "ATTRIBUTE"
+        grouptag { "sidefx::look" "blank" }
+
+        groupsimple {
+            name    "folder9"
+            label   "SOURCE"
+            grouptag { "sidefx::look" "blank" }
+
+            parm {
+                name    "sepparm11"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+            parm {
+                name    "inclass"
+                label   "Class"
+                type    ordinal
+                default { "point" }
+                menu {
+                    "detail"    "Detail"
+                    "primitive" "Primitive"
+                    "point"     "Point"
+                    "vertex"    "Vertex"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "inname"
+                label   "Attribute"
+                type    string
+                joinnext
+                default { "P" }
+                menu {
+                    [ "opmenu -l -a inputAttrib inname" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback" "hou.phm().resetViz(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "viz"
+                label   "Label"
+                type    button
+                nolabel
+                joinnext
+                default { "0" }
+                parmtag { "button_icon" "hicon:/SVGIcons.index?VIEW_visualization_color.svg" }
+                parmtag { "script_callback" "hou.phm().toggleViz(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "componentSelector"
+                label   "Comp"
+                type    ordinal
+                nolabel
+                joinnext
+                default { "P_x" }
+                hidewhen "{ componentCount < 2 }"
+                menu {
+                    [ "opmenu -l -a draw_component_menu componentSelector" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback" "hou.phm().resetViz(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "normalize"
+                label   "Normalize (Auto)"
+                type    toggle
+                default { "on" }
+                parmtag { "script_callback" "hou.phm().checkNormalize(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "componentCount"
+                label   "Component Count"
+                type    integer
+                invisible
+                default { [ "detail(\"./OUT_FINAL/\", \"___attribSizeIn\", 0)" hscript-expr ] }
+                range   { 0 10 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+            parm {
+                name    "computeLimit2"
+                label   "Compute Min / Max"
+                type    button
+                default { "0" }
+                disablewhen "{ normalize == 1 }"
+                parmtag { "script_callback" "hou.phm().autoFit(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm2"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+        }
+
+        groupcollapsible {
+            name    "folder3"
+            label   "OUTPUT NAME"
+
+            parm {
+                name    "input2"
+                label   "Same as Source"
+                type    toggle
+                joinnext
+                default { "on" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback" "hou.phm().resetViz(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "input"
+                label   "Preserve Original Attribute"
+                type    toggle
+                joinnext
+                default { "on" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback" "hou.phm().resetViz(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm13"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+            parm {
+                name    "sepparm24"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+            parm {
+                name    "outputattrib"
+                label   "Output Name"
+                type    string
+                default { "mask" }
+                hidewhen "{ input2 == 1 }"
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback" "hou.phm().resetViz(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "addprefix"
+                label   "Add Prefix"
+                type    toggle
+                joinnext
+                default { "on" }
+                hidewhen "{ input2 == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback" "hou.phm().resetViz(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "prefix"
+                label   "Prefix"
+                type    string
+                nolabel
+                joinnext
+                default { "n" }
+                disablewhen "{ addprefix != 1 }"
+                hidewhen "{ input2 == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback" "hou.phm().resetViz(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "addComponent"
+                label   "Add Component"
+                type    toggle
+                joinnext
+                default { "on" }
+                hidewhen "{ input2 == 0 } { componentCount < 2 }"
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback" "hou.phm().resetViz(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sep"
+                label   "Add Separators"
+                type    toggle
+                default { "off" }
+                hidewhen "{ input2 == 0 } { addprefix == 0 addComponent == 0 }"
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback" "hou.phm().resetViz(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+    }
+
+    groupsimple {
+        name    "folder2"
+        label   "INPUT"
+
+        parm {
+            name    "sepparm23"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        groupcollapsible {
+            name    "folder0"
+            label   "MIN-MAX"
+
+            parm {
+                name    "sepparm22"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+            parm {
+                name    "computeLimit"
+                label   "Compute Min / Max"
+                type    button
+                default { "0" }
+                disablewhen "{ normalize == 1 }"
+                parmtag { "script_callback" "hou.phm().autoFit(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm12"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+            parm {
+                name    "inmin"
+                label   "Min"
+                type    log
+                default { "0" }
+                range   { 1e-06 100 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "inmax"
+                label   "Max"
+                type    log
+                default { "1" }
+                range   { 1e-06 100 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+        parm {
+            name    "sepparm5"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "computeLimit3"
+            label   "Invert Range"
+            type    button
+            joinnext
+            default { "0" }
+            parmtag { "script_callback" "hou.phm().invert(kwargs)" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "mirror"
+            label   "Mirror"
+            type    toggle
+            default { "off" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm7"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "center"
+            label   "Center"
+            type    float
+            default { "0.5" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "width"
+            label   "Width"
+            type    float
+            default { "0.5" }
+            range   { 0.001 1.001 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm8"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "inputPow"
+            label   "Gamma"
+            type    log
+            default { "1" }
+            range   { 0.1 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm4"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "freq"
+            label   "Freq"
+            type    log
+            default { "1" }
+            range   { 0.1 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "offset"
+            label   "Offset"
+            type    float
+            default { "0" }
+            range   { -0.5 0.5 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupcollapsible {
+        name    "folder5"
+        label   "RAMP"
+
+        parm {
+            name    "inputAttributeRamp"
+            label   "Shaper"
+            type    ramp_flt
+            default { "2" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "rampbasisdefault" "bspline" }
+            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( bspline ) 2pos ( 1 ) 2value ( 1 ) 2interp ( bspline )" }
+        }
+    }
+
+    groupcollapsible {
+        name    "folder4"
+        label   "POST-PROCESS"
+
+        parm {
+            name    "input3"
+            label   "Bake to Cd"
+            type    toggle
+            default { "off" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "outPow"
+            label   "Gamma"
+            type    log
+            default { "1" }
+            range   { 0.001 1000 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupsimple {
+            name    "folder6"
+            label   "VISUALIZE"
+            hidewhen "{ input3 == 0 }"
+            grouptag { "sidefx::look" "blank" }
+
+            parm {
+                name    "ramp"
+                label   "Cd Ramp"
+                type    ramp_rgb
+                default { "5" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "rampbasis_var" "vecramp_the_basis_strings" }
+                parmtag { "rampbasisdefault" "linear" }
+                parmtag { "rampcolordefault" "1pos ( 0 ) 1c ( 6.8730041675735265e-05 6.5856103901751339e-05 0.00011069888569181785 ) 1interp ( catmull-rom ) 2pos ( 0.25 ) 2c ( 0.091902844607830048 0.00037944607902318239 0.15374371409416199 ) 2interp ( catmull-rom ) 3pos ( 0.5 ) 3c ( 0.49176821112632751 0.0028808284550905228 0.091138236224651337 ) 3interp ( catmull-rom ) 4pos ( 0.75 ) 4c ( 0.94867688417434692 0.26416197419166565 0.00023387980763800442 ) 4interp ( catmull-rom ) 5pos ( 1 ) 5c ( 0.97372907400131226 0.99628227949142456 0.37352201342582703 ) 5interp ( catmull-rom )" }
+                parmtag { "rampcolortype" "rgb" }
+                parmtag { "rampkeys_var" "vecramp_the_key_positions" }
+                parmtag { "rampshowcontrolsdefault" "0" }
+                parmtag { "rampvalues_var" "vecramp_the_key_values" }
+            }
+        }
+
+        parm {
+            name    "sepparm10"
+            label   "MIN / MAX"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        groupcollapsible {
+            name    "folder8"
+            label   "MIN / MAX"
+
+            parm {
+                name    "onmin"
+                label   "Onmin"
+                type    float
+                default { "0" }
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "omax"
+                label   "Omax"
+                type    float
+                default { "1" }
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+    }
+
+    groupcollapsible {
+        name    "folder7"
+        label   "VEXPRESSIONS"
+
+        parm {
+            name    "sepparm18"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "do_vexpression"
+            label   "VEXpressions"
+            type    toggle
+            joinnext
+            default { "off" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm17"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "sepparm19"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "vexpression"
+            label   "VEXpression"
+            type    string
+            default { "/////////////////\n// PASSTHROUGH //\n/////////////////\n\nimin = imin;            // Input Minimum\nimax = imax;            // Input Maximum\ncenter = center;        // Center\nwidth = width;          // Width\nipow = ipow;            // Input Power\nfreq = freq;            // Frequency\noffset = offset;        // Offset\nopow = opow;            // Output Power\nomin = omin;            // Output Minimum\nomax = omax;            // Output Maximum" }
+            hidewhen "{ do_vexpression == 0 }"
+            menureplace {
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "editor" "1" }
+            parmtag { "editorlang" "vex" }
+            parmtag { "editorlines" "5-100" }
+            parmtag { "import_enable" "1" }
+            parmtag { "import_source" "op:.." }
+            parmtag { "import_token" "snippet2" }
+            parmtag { "script_action" "import vexpressionmenu\n\ndef findall(p, s):\n    '''Yields all the positions of\n    the pattern p in the string s.'''\n    i = s.find(p)\n    while i != -1:\n        yield i\n        i = s.find(p, i+1)\n\nnode = kwargs['node']\nparmname = 'vexpression'\np = node.parm(parmname)\nvexpressionmenu.createSpareParmsFromChCalls(node, parmname)\n\nparmValue = p.eval()\nchcalls = [\n    'ch(', 'chf(', 'chi(', 'chu(', 'chv(', 'chp(', 'ch2(', 'ch3(', 'ch4(',\n    'chramp(', 'chrampderiv(', 'chs(',\n    'chdict(', 'chsop'\n]\n\n\n\noldVal = \"\"\npath = \"../\"\nsingle = \"'\"\ndouble = '\"'\nparmsToReplace = []\n\n\n\n\nfor ch in chcalls:\n    \n    length = len(ch)\n    chpos = [[i, ch] for i in findall(ch, parmValue)]\n    \n    if(len(chpos) != 0):\n        \n        for j in chpos:\n            \n            start = j[0]\n            end = j[0] + length + 1\n            nameEnd = parmValue.find('\"', end, end+100)\n            parmName = parmValue[end:nameEnd]\n            j.append(parmName)\n            parmsToReplace.append(j)\n    \nsrcSingle = []\nsrcDouble =[]\ntarSingle = []\ntarDouble = []\n\nfor parm in parmsToReplace:\n    srcSingleQuoteString = parm[1] + single + parm[2] + single \n    srcDoubleQuoteString = parm[1] + double + parm[2] + double \n    tarSingleQuoteString = parm[1] + single + path + parm[2] + single\n    tarDoubleQuoteString = parm[1] + double + path + parm[2] + double \n    \n    \n    srcSingle.append(srcSingleQuoteString)\n    srcDouble.append(srcDoubleQuoteString)\n    tarSingle.append(tarSingleQuoteString)\n    tarDouble.append(tarDoubleQuoteString)\n\nfor srcName in range(len(srcDouble)):\n    index = srcName\n    srcName = srcDouble[index]\n    if(\"..\" in srcName):\n        pass\n    else:\n        newName = tarDouble[index]\n        parmValue = parmValue.replace(srcName, newName)\n\np.set(parmValue)\n\n\n\n" }
+            parmtag { "script_action_help" "Creates spare parameters for each unique call of ch() " }
+            parmtag { "script_action_icon" "BUTTONS_create_parm_from_ch" }
+            parmtag { "script_callback_language" "hscript" }
+        }
+    }
+
+    parm {
+        name    "sepparm20"
+        label   "Spacer"
+        type    separator
+        default { "" }
+        parmtag { "sidefx::layout_height" "small" }
+        parmtag { "sidefx::look" "blank" }
+    }
+    parm {
+        name    "sepparm9"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "sepparm21"
+        label   "Spacer"
+        type    separator
+        default { "" }
+        parmtag { "sidefx::layout_height" "small" }
+        parmtag { "sidefx::look" "blank" }
+    }
+}

@@ -1,0 +1,27 @@
+def syncOperation(kwargs):
+    rootnode = kwargs['node']
+    actualp = kwargs["parm"]
+    operationp = rootnode.parm("operation")
+    modep = rootnode.parm("mode")
+    if(actualp == modep):
+        operationp.set(modep.eval())
+        updateComment(kwargs)
+    else:
+        modep.set(operationp.eval())
+        updateComment(kwargs)
+        
+def updateComment(kwargs):
+    node = kwargs['node']
+    if(node.input(0)):
+        autoNameNode = node.node("IN_GEO")
+        geo = autoNameNode.geometry()
+        mode = geo.stringAttribValue("___operationName")     
+        srcNameA = geo.stringAttribValue("___srcAttribA")
+        srcNameB = geo.stringAttribValue("___srcAttribB")
+        orderIndex = node.parm("switchOrder").eval()
+        targetAttrib = node.parm("targetAttrib").eval()
+        orders = ['A-B', 'B-A']
+        order = orders[orderIndex]
+        comment = str("A : " + srcNameA + " - B : " + srcNameB + "\nOrder : " + order + " - Mode : " + mode + "\nOUT : " + targetAttrib )
+        node.setComment(comment)
+        node.setGenericFlag(hou.nodeFlag.DisplayComment,True)

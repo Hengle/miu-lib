@@ -1,0 +1,7 @@
+me = kwargs['node']
+p = me.parm("open_motion_tab")
+auto = me.parm("auto_focus")
+me.setName('CHOP_Chan', True)
+color = hou.Color()
+color.setRGB((0.3,0.5,0.1))
+me.setColor(color)

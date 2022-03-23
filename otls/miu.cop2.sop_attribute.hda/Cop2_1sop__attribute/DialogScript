@@ -1,0 +1,121 @@
+# Dialog script for sop_attribute automatically generated
+
+{
+    name	sop_attribute
+    script	sop_attribute
+    label	"SOP Attribute"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "op"
+        label   "Driver OP"
+        type    oppath
+        default { "../RT_DRIVER" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "oprelative" "." }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "color"
+        label   "C"
+        type    string
+        default { "$OS" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cop2" }
+    }
+    parm {
+        name    "isColorAttrib"
+        label   "Color Attribute"
+        type    integer
+        invisible
+        default { [ "if(strlen(chs(\"color\"))>0, 1, 0)" hscript-expr ] }
+        range   { 0 10 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "initColor"
+        label   "Constant Color"
+        type    color
+        size    3
+        default { "0" "0" "0" }
+        disablewhen "{ isColorAttrib == 1 }"
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "colortype" "hsv" }
+        parmtag { "colorwheel" "1" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cop2" }
+    }
+    parm {
+        name    "alpha"
+        label   "A"
+        type    string
+        default { "Alpha" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cop2" }
+    }
+    parm {
+        name    "isAlphaAttrib"
+        label   "Alpha Attribute"
+        type    integer
+        invisible
+        default { [ "if(strlen(chs(\"alpha\"))>0, 1, 0)" hscript-expr ] }
+        range   { 0 10 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "initAlpha"
+        label   "Constant Alpha"
+        type    float
+        default { "1" }
+        disablewhen "{ isAlphaAttrib == 1 }"
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cop2" }
+    }
+    parm {
+        name    "denoise"
+        label   "Denoise"
+        type    toggle
+        default { "on" }
+        range   { 0! 8 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    groupcollapsible {
+        name    "folder0"
+        label   "DENOISE SETUP"
+        hidewhen "{ denoise == 0 }"
+
+        parm {
+            name    "iteration"
+            label   "Iterations"
+            type    integer
+            default { "4" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "diffuse"
+            label   "Diffuse"
+            type    float
+            default { "0.4" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

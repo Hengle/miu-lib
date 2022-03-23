@@ -1,0 +1,5 @@
+me = kwargs['node']
+me.setName('Auto_Align', True)
+color = hou.Color()
+color.setRGB((1,1,0))
+me.setColor(color)

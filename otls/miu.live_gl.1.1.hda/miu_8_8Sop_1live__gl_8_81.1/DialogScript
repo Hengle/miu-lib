@@ -1,0 +1,18 @@
+# Dialog script for miu::live_gl::1.1 automatically generated
+
+{
+    name	miu::live_gl::1.1
+    script	simon_live_shader
+    label	"Live  GL"
+
+    help {
+	""
+    }
+
+    inputlabel	1	GEO
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	GEO
+
+}

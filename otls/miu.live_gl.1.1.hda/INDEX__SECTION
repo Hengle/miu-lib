@@ -1,0 +1,14 @@
+Operator:     miu::live_gl::1.1
+Label:        Live  GL
+Path:         oplib:/miu::Sop/live_gl::1.1?miu::Sop/live_gl::1.1
+Icon:         opdef:/miu::Sop/live_gl::1.1?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Tue Jan 11 12:03:14 2022
+

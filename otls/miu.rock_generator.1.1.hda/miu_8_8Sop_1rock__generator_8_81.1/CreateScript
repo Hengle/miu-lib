@@ -1,0 +1,16 @@
+# Automatically generated script
+\set noalias = 1
+#
+#  Creation script for miu::rock_generator::1.1 operator
+#
+
+if ( "$arg1" == "" ) then
+    echo This script is intended as a creation script
+    exit
+endif
+
+# Node $arg1 (miu::Sop/rock_generator::1.1)
+opexprlanguage -s hscript $arg1
+opuserdata -n '___Version___' -v '' $arg1
+opuserdata -n 'nodeshape' -v 'chevron_up' $arg1
+opuserdata -n 'sidefx::parm_filter_text_pattern' -v 'i' $arg1

@@ -1,0 +1,30 @@
+{
+	"values":["19.0.455"
+	],
+	"indexes":{
+		"hdaroot/switch1.userdata":0,
+		"hdaroot/null1.userdata":0,
+		"hdaroot/import_Attrib/multiply3.userdata":0,
+		"hdaroot/import_Attrib/switch2.userdata":0,
+		"hdaroot/import_Attrib/parm6.userdata":0,
+		"hdaroot/denoise1.userdata":0,
+		"hdaroot/import_Attrib/parm5.userdata":0,
+		"hdaroot/import_Attrib/parm4.userdata":0,
+		"hdaroot/import_Attrib/parm3.userdata":0,
+		"hdaroot/import_Attrib/multiply2.userdata":0,
+		"hdaroot/import_Attrib/subtract1.userdata":0,
+		"hdaroot/import_Attrib/subtract2.userdata":0,
+		"hdaroot/import_Attrib/const4.userdata":0,
+		"hdaroot/import_Attrib/const2.userdata":0,
+		"hdaroot/import_Attrib/add1.userdata":0,
+		"hdaroot/import_Attrib/parm2.userdata":0,
+		"hdaroot/import_Attrib/parm1.userdata":0,
+		"hdaroot/import_Attrib/output1.userdata":0,
+		"hdaroot/import_Attrib/global1.userdata":0,
+		"hdaroot/import_Attrib/const3.userdata":0,
+		"hdaroot/import_Attrib/switch3.userdata":0,
+		"hdaroot/import_Attrib/multiply1.userdata":0,
+		"hdaroot/import_Attrib.userdata":0,
+		"hdaroot/import_Attrib/divide1.userdata":0
+	}
+}

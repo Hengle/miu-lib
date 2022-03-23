@@ -1,0 +1,17 @@
+{
+	"values":["19.0.455"
+	],
+	"indexes":{
+		"hdaroot/IN.userdata":0,
+		"hdaroot/output0.userdata":0,
+		"hdaroot/matnet1/RS_LIVE_SHADER/BumpMap1.userdata":0,
+		"hdaroot/material1.userdata":0,
+		"hdaroot/matnet1/RS_LIVE_SHADER/NORMAL.userdata":0,
+		"hdaroot/matnet1/RS_LIVE_SHADER/redshift_material1.userdata":0,
+		"hdaroot/matnet1.userdata":0,
+		"hdaroot/matnet1/RS_LIVE_SHADER/Material1.userdata":0,
+		"hdaroot/matnet1/RS_LIVE_SHADER/COLOR.userdata":0,
+		"hdaroot/matnet1/RS_LIVE_SHADER/ROUGHNESS.userdata":0,
+		"hdaroot/matnet1/RS_LIVE_SHADER.userdata":0
+	}
+}

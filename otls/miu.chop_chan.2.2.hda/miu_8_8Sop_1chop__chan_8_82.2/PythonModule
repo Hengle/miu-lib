@@ -1,0 +1,68 @@
+from tkinter import *
+
+def openMotionTab(kwargs):
+    t = Tk()
+    w = 640
+    h = 360
+    screenh = t.winfo_screenheight()
+    pos = list(t.winfo_pointerxy())
+    pos[1] = screenh - pos[1] - h
+    me = kwargs['node']
+    motion_fx_view = hou.paneTabType.ChannelViewer
+    curTabs = hou.ui.currentPaneTabs()
+    allTabs = hou.ui.paneTabs()
+    cnt = 0
+    pane_tab = 0
+    for index, pane in enumerate(allTabs):
+        if(pane.type() == hou.paneTabType.ChannelViewer):
+            cnt += 1
+            pane_tab = pane
+            break
+        else:
+            if(index + 1 == len(allTabs)):
+                pass
+            continue
+    if(cnt < 1): 
+        pane_tab = hou.ui.curDesktop().createFloatingPaneTab(motion_fx_view, pos, [w, h])
+        pane_tab.setPin(1)
+    
+    try:
+        chopn = hou.node(me.path()+"/FX/OUT")
+        pane_tab.setCurrentNode(chopn)
+        chopn.setCurrent(0, False)
+        me.setCurrent(1, False)
+    except hou.Error:
+        pass
+    return
+
+def autoFocus(kwargs):
+    me = kwargs['node']
+    p = me.parm("auto_focus").eval()
+    def input_event(node, event_type, **kwargs):
+        selecteds = hou.selectedNodes()
+        if(len(selecteds) > 0):
+            try:
+                me.parm('open_motion_tab').pressButton()
+            except:
+                print(hou.Error)
+                
+    if(p == 1):
+        me.addEventCallback((hou.nodeEventType.AppearanceChanged,), input_event)
+    else:
+        me.removeAllEventCallbacks()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

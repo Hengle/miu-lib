@@ -1,0 +1,390 @@
+# Dialog script for miu::quick_composite::1.2 automatically generated
+
+{
+    name	miu::quick_composite::1.2
+    script	sb::quick_composite::1.0
+    label	"Quick Composite"
+
+    help {
+	""
+    }
+
+    inputlabel	1	Geo
+    inputlabel	2	"Optional Input"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	Geo
+
+    parm {
+        name    "sepparm3"
+        label   "Spacer"
+        type    separator
+        default { "" }
+        parmtag { "sidefx::layout_height" "small" }
+        parmtag { "sidefx::look" "blank" }
+    }
+    parm {
+        name    "attribClass"
+        label   "Class"
+        type    ordinal
+        default { "point" }
+        menu {
+            "detail"    "Detail"
+            "primitive" "Primitive"
+            "point"     "Point"
+            "vertex"    "Vertex"
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm9"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    groupsimple {
+        name    "folder2"
+        label   "MODE"
+        grouptag { "sidefx::look" "blank" }
+
+        parm {
+            name    "mode"
+            label   "Mode"
+            type    ordinal
+            joinnext
+            default { "multiply" }
+            menu {
+                [ "opmenu -l -a set_operation mode" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback" "hou.phm().syncOperation(kwargs)" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "switchOrder"
+            label   "Switch Order"
+            type    toggle
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback" "hou.phm().updateComment(kwargs)" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "operation"
+            label   "Quick Selector"
+            type    integer
+            default { "8" }
+            range   { 0 18 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback" "hou.phm().syncOperation(kwargs)" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    parm {
+        name    "sepparm7"
+        label   "Spacer"
+        type    separator
+        default { "" }
+        parmtag { "sidefx::layout_height" "small" }
+        parmtag { "sidefx::look" "blank" }
+    }
+    groupsimple {
+        name    "folder0"
+        label   "INPUT"
+
+        parm {
+            name    "attrA_inname"
+            label   "A"
+            type    string
+            joinnext
+            default { "P" }
+            menu {
+                [ "opmenu -l -a attrA inname" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback" "hou.phm().updateComment(kwargs)" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "compA"
+            label   "Component A"
+            type    ordinal
+            nolabel
+            joinnext
+            default { "P_x" }
+            disablewhen "{ isFullVectorA == 1 }"
+            hidewhen "{ isFloatA == 1 }"
+            menu {
+                [ "opmenu -l -a get_selected_comp compA" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isFullVectorA"
+            label   "Full Vector"
+            type    toggle
+            default { "off" }
+            hidewhen "{ isFloatA == 1 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isAaConstant"
+            label   "Constant  "
+            type    toggle
+            joinnext
+            default { "on" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "AaConstant"
+            label   "A Alpha"
+            type    float
+            joinnext
+            default { "1" }
+            hidewhen "{ isAaConstant == 0 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "attrAa_inname"
+            label   "A Alpha"
+            type    string
+            joinnext
+            default { "P" }
+            hidewhen "{ isAaConstant == 1 }"
+            menu {
+                [ "opmenu -l -a attrAa inname" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "compAa"
+            label   "Component A Alpha"
+            type    ordinal
+            nolabel
+            default { "P_x" }
+            hidewhen "{ isFloatAa == 1 } { isAaConstant == 1 }"
+            menu {
+                [ "opmenu -l -a get_selected_comp compAa" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "attrB_inname"
+            label   "B"
+            type    string
+            joinnext
+            default { "P" }
+            menu {
+                [ "opmenu -l -a attrA inname" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback" "hou.phm().updateComment(kwargs)" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "compB"
+            label   "Component B"
+            type    ordinal
+            nolabel
+            joinnext
+            default { "P_x" }
+            disablewhen "{ isFullVectorB == 1 }"
+            hidewhen "{ isFloatB == 1 }"
+            menu {
+                [ "opmenu -l -a get_selected_comp compB" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isFullVectorB"
+            label   "Full Vector"
+            type    toggle
+            default { "off" }
+            hidewhen "{ isFloatB == 1 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isBaConstant"
+            label   "Constant  "
+            type    toggle
+            joinnext
+            default { "on" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "BaConstant"
+            label   "B Alpha"
+            type    float
+            joinnext
+            default { "1" }
+            hidewhen "{ isBaConstant == 0 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "attrBa_inname"
+            label   "B Alpha"
+            type    string
+            joinnext
+            default { "P" }
+            hidewhen "{ isBaConstant == 1 }"
+            menu {
+                [ "opmenu -l -a attrAa inname" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "compBa"
+            label   "Component B Alpha"
+            type    ordinal
+            nolabel
+            default { "P_x" }
+            hidewhen "{ isFloatBa == 1 } { isBaConstant == 1 }"
+            menu {
+                [ "opmenu -l -a get_selected_comp compBa" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    parm {
+        name    "isFloatA"
+        label   "isFloatA"
+        type    integer
+        invisible
+        joinnext
+        default { [ "ch(\"_is_Float/isFloatA\")" hscript-expr ] }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "isFloatAa"
+        label   "isFloatAa"
+        type    integer
+        invisible
+        joinnext
+        default { [ "ch(\"_is_Float/isFloatAa\")" hscript-expr ] }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "isFloatB"
+        label   "isFloatB"
+        type    integer
+        invisible
+        joinnext
+        default { [ "ch(\"_is_Float/isFloatB\")" hscript-expr ] }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "isFloatBa"
+        label   "isFloatBa"
+        type    integer
+        invisible
+        default { [ "ch(\"_is_Float/isFloatBa\")" hscript-expr ] }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm4"
+        label   "Spacer"
+        type    separator
+        default { "" }
+        parmtag { "sidefx::layout_height" "small" }
+        parmtag { "sidefx::look" "blank" }
+    }
+    groupsimple {
+        name    "folder1"
+        label   "OUTPUT"
+
+        parm {
+            name    "sepparm6"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "outAsFloat"
+            label   "Output As Float"
+            type    toggle
+            default { "0" }
+            hidewhen "{ isFloatA == 1 isFloatB == 1 }"
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "tarCompSelector"
+            label   "Component"
+            type    integer
+            default { "0" }
+            hidewhen "{ outAsFloat == 0 } { isFloatA == 1 isFloatB == 1 }"
+            menu {
+                "0" "X"
+                "1" "Y"
+                "2" "Z"
+            }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "targetAttrib"
+            label   "Attribute Name"
+            type    string
+            default { "mask" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action" "from soputils import actionToggleVisualizer\n\nnode = kwargs['node']\nname = node.parm('targetAttrib').eval()\nvisName = name\n\ncategory = hou.viewportVisualizerCategory.Node\nvisTup = hou.viewportVisualizers.visualizers(category, node)\ntoggle = 1\n\n\n## RAMP ##\nbasis = hou.rampBasis.CatmullRom\nramp = hou.Ramp((basis, basis, basis, basis, basis), (0, 0.25, 0.5, 0.75, 1), \n((0.0, 0.0, 0.0), (0.092, 0, 0.154), (0.492, 0.003, 0.091), (0.949, 0.264, 0), (0.974, 0.996, 0.3734)))\n\nif not name:\n    print(\"Please, enter a name\")\nelif(len(visTup) != 0):\n    for vis in visTup:\n        oldName = vis.name()\n        if(oldName != visName):\n            vis.setName(visName)\n            vis.setLabel(visName.capitalize())\n            vis.setParm('attrib', visName)\n        elif(vis.isActive()):\n            vis.setIsActive(0)\n        else:\n            vis.setIsActive(1)\nelse:\n    viz = hou.viewportVisualizers.createVisualizer(hou.viewportVisualizers.type('vis_color'), category,node)\n    viz.setName(visName)\n    viz.setLabel(visName.capitalize())\n    viz.setParm('attrib', visName)\n    viz.setParm('colortype', 1)\n    viz.setParm('rangespec', 1)\n    viz.setParm('colorramp', ramp)\n    viz.setIsActive(1)" }
+            parmtag { "script_action_icon" "VIEW_visualization" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "outAlpha"
+            label   "Alpha"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "targetAttribAlpha"
+            label   "Alpha Name"
+            type    string
+            default { "mask" }
+            hidewhen "{ outAlpha != 1 }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action" "from soputils import actionToggleVisualizer\n\nnode = kwargs['node']\nname = node.parm('targetAttribAlpha').eval()\nvisName = name\n\ncategory = hou.viewportVisualizerCategory.Node\nvisTup = hou.viewportVisualizers.visualizers(category, node)\ntoggle = 1\n\n\n## RAMP ##\nbasis = hou.rampBasis.CatmullRom\nramp = hou.Ramp((basis, basis, basis, basis, basis), (0, 0.25, 0.5, 0.75, 1), \n((0.0, 0.0, 0.0), (0.092, 0, 0.154), (0.492, 0.003, 0.091), (0.949, 0.264, 0), (0.974, 0.996, 0.3734)))\n\nif not name:\n    print(\"Please, enter a name\")\nelif(len(visTup) != 0):\n    for vis in visTup:\n        oldName = vis.name()\n        if(oldName != visName):\n            vis.setName(visName)\n            vis.setLabel(visName.capitalize())\n            vis.setParm('attrib', visName)\n        elif(vis.isActive()):\n            vis.setIsActive(0)\n        else:\n            vis.setIsActive(1)\nelse:\n    viz = hou.viewportVisualizers.createVisualizer(hou.viewportVisualizers.type('vis_color'), category,node)\n    viz.setName(visName)\n    viz.setLabel(visName.capitalize())\n    viz.setParm('attrib', visName)\n    viz.setParm('colortype', 1)\n    viz.setParm('rangespec', 1)\n    viz.setParm('colorramp', ramp)\n    viz.setIsActive(1)" }
+            parmtag { "script_action_icon" "VIEW_visualization" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

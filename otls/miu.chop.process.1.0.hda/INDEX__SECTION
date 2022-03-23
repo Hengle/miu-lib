@@ -1,0 +1,14 @@
+Operator:     sb::chop_process::1.0
+Label:        CHOP Process
+Path:         oplib:/sb::Chop/chop_process::1.0?sb::Chop/chop_process::1.0
+Icon:         SOP_subnet
+Table:        Chop
+License:      
+Extra:        
+User:         
+Inputs:       0 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Sat Jan  8 02:25:16 2022
+

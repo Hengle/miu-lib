@@ -1,0 +1,26 @@
+{
+	"values":["19.0.455","2"
+	],
+	"indexes":{
+		"hdaroot/switch1.userdata":0,
+		"hdaroot/usdimport1.userdata":1,
+		"hdaroot/convert1.userdata":0,
+		"hdaroot/fuse1.userdata":0,
+		"hdaroot/INPUT_GEO.userdata":0,
+		"hdaroot/RENDER/usd1.userdata":0,
+		"hdaroot/OUT.userdata":0,
+		"hdaroot/polyreduce1.userdata":0,
+		"hdaroot/RENDER/gltf2.userdata":0,
+		"hdaroot/RENDER.userdata":0,
+		"hdaroot/normal1.userdata":0,
+		"hdaroot/generate_usd/null1.userdata":0,
+		"hdaroot/gltf1.userdata":0,
+		"hdaroot/generate_usd/input_geo/sopnet/create/object_merge1.userdata":0,
+		"hdaroot/attribpromote1.userdata":0,
+		"hdaroot/generate_usd/input_geo/sopnet/create.userdata":0,
+		"hdaroot/divide1.userdata":0,
+		"hdaroot/generate_usd/input_geo/sopnet/create/null1.userdata":0,
+		"hdaroot/generate_usd.userdata":0,
+		"hdaroot/RENDER/merge1.userdata":0
+	}
+}
